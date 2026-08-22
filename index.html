@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MNMM.CLONE — Minimal Websites Directory</title>
+  <meta name="description" content="A carefully curated collection of minimal websites.">
+  <meta name="theme-color" content="#000000">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Geist:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Gloock', 'serif'],
+            sans: ['Geist', 'ui-sans-serif', 'sans-serif'],
+            mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    ::selection { color:#000; background:#fff; }
+    html { scroll-behavior:smooth; }
+    body { -webkit-font-smoothing:antialiased; }
+
+    /* shimmering tagline, like the original */
+    .shiny {
+      background: linear-gradient(110deg, #fff 25%, #52525b 45%, #fff 65%);
+      background-size: 200% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: shine 5s linear infinite;
+    }
+    @keyframes shine { to { background-position: -200% 0; } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .shiny { animation: none; }
+      * { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+
+    :focus-visible { outline: 1px solid #fff; outline-offset: 3px; }
+  </style>
+</head>
+
+<body class="bg-black font-sans text-white">
+
+  <!-- ============ HEADER ============ -->
+  <header class="border-b border-white/10">
+    <nav class="mx-auto flex max-w-5xl items-center justify-between px-6 py-5 font-mono text-sm tracking-widest">
+      <a href="#" class="text-white transition-colors hover:text-gray-400">MNMM.CLONE</a>
+      <a href="https://docs.google.com/spreadsheets/d/1XALmHbWxrLTg1hVp4tSzk_3p3vpWoDGXVjwgmSsjjcA/export?format=csv"
+         target="_blank" rel="noopener"
+         class="text-gray-500 transition-colors hover:text-white">ARCHIVE</a>
+    </nav>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="mx-auto max-w-3xl px-6 pb-20 pt-24 text-center md:pt-28">
+    <svg class="mx-auto h-8 w-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+      <rect x="4" y="4" width="16" height="16"></rect>
+    </svg>
+    <h1 class="mt-10 font-display text-6xl leading-none md:text-7xl">Minimum</h1>
+    <p class="mt-5 text-gray-400">Minimal websites directory.</p>
+    <p class="shiny mt-2 inline-block text-lg">Because less, is more.</p>
+    <p class="mt-12 font-mono text-xs tracking-wider text-gray-500">
+      <span id="counter" class="text-gray-300">·····</span>&nbsp;websites collected.
+    </p>
+  </section>
+
+  <!-- ============ DIRECTORY ============ -->
+  <main class="mx-auto max-w-5xl px-6 pb-28">
+
+    <!-- Top 5 new -->
+    <section id="new-section" hidden aria-labelledby="new-label">
+      <div class="mb-8 flex items-center gap-4">
+        <h2 id="new-label" class="whitespace-nowrap font-mono text-xs uppercase tracking-[0.25em] text-emerald-400">Top 5 New</h2>
+        <div class="h-px w-full bg-white/10"></div>
+      </div>
+      <div id="new-grid" class="grid grid-cols-1 gap-8 md:grid-cols-2"></div>
+    </section>
+
+    <!-- Full archive -->
+    <section id="archive-section" hidden class="mt-20" aria-labelledby="archive-label">
+      <div class="mb-8 flex items-center gap-4">
+        <h2 id="archive-label" class="whitespace-nowrap font-mono text-xs uppercase tracking-[0.25em] text-gray-500">
+          Archive — <span id="archive-count">00000</span>
+        </h2>
+        <div class="h-px w-full bg-white/10"></div>
+      </div>
+      <div id="grid" class="grid grid-cols-1 gap-8 md:grid-cols-2"></div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="border-t border-white/10">
+    <div class="mx-auto flex max-w-5xl flex-col gap-2 px-6 py-10 font-mono text-xs text-gray-500 sm:flex-row sm:items-center sm:justify-between">
+      <span>© 2026 MNMM.CLONE — a study in less.</span>
+      <a href="https://mnmm.xyz" target="_blank" rel="noopener" class="transition-colors hover:text-white">original — mnmm.xyz</a>
+    </div>
+  </footer>
+
+  <!-- ============ STATUS OVERLAYS ============ -->
+  <div id="loading" class="fixed inset-0 z-50 grid place-items-center bg-black" role="status" aria-live="polite">
+    <p class="font-mono text-sm tracking-widest text-gray-500">LOADING<span class="animate-pulse">…</span></p>
+  </div>
+
+  <div id="error" hidden class="fixed inset-0 z-50 grid place-items-center bg-black px-6" role="alert">
+    <pre class="max-w-xl whitespace-pre-wrap text-center font-mono text-sm leading-relaxed text-white"></pre>
+  </div>
+
+  <!-- ============ APP ============ -->
+  <script>
+    (() => {
+      'use strict';
+
+      const SHEET_CSV = 'https://docs.google.com/spreadsheets/d/1XALmHbWxrLTg1hVp4tSzk_3p3vpWoDGXVjwgmSsjjcA/export?format=csv';
+      const LOCAL_CSV = 'data/sites.csv'; // snapshot committed by the daily cron
+      const NEW_WINDOW_DAYS = 7;
+
+      const $ = (id) => document.getElementById(id);
+
+      const escapeHTML = (s) =>
+        String(s).replace(/[&<>"']/g, (c) =>
+          ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+      const normalizeURL = (raw) =>
+        raw.trim().replace(/^https?:\/\//i, '').replace(/\/+$/, '');
+
+      // Minimal RFC-4180-ish parser: handles quoted fields, escaped quotes, CRLF.
+      function parseCSV(text) {
+        const rows = [];
+        let row = [], field = '', inQuotes = false;
+        for (let i = 0; i < text.length; i++) {
+          const c = text[i];
+          if (inQuotes) {
+            if (c === '"') {
+              if (text[i + 1] === '"') { field += '"'; i++; }
+              else inQuotes = false;
+            } else field += c;
+          } else if (c === '"') inQuotes = true;
+          else if (c === ',') { row.push(field); field = ''; }
+          else if (c === '\n' || c === '\r') {
+            if (c === '\r' && text[i + 1] === '\n') i++;
+            row.push(field); field = '';
+            if (row.length > 1 || row[0] !== '') rows.push(row);
+            row = [];
+          } else field += c;
+        }
+        row.push(field);
+        if (row.length > 1 || row[0] !== '') rows.push(row);
+        return rows;
+      }
+
+      function parseDate(s) {
+        if (!s || !/^\d{4}-\d{2}-\d{2}$/.test(s.trim())) return null;
+        const d = new Date(s.trim() + 'T00:00:00Z');
+        return isNaN(d) ? null : d;
+      }
+
+      const screenshotSrc = (url) =>
+        `https://api.microlink.io/?url=https://${encodeURIComponent(url)}&screenshot=true&meta=false&embed=screenshot.url`;
+
+      function card(site, showDate) {
+        const a = document.createElement('a');
+        a.href = `https://${site.url}`;
+        a.target = '_blank';
+        a.rel = 'noopener';
+        a.className = 'group block';
+
+        const frame = document.createElement('div');
+        frame.className = 'relative aspect-video overflow-hidden bg-neutral-900';
+
+        const img = document.createElement('img');
+        img.alt = `Screenshot of ${site.url}`;
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        img.src = screenshotSrc(site.url);
+        img.className =
+          'h-full w-full object-cover grayscale opacity-0 transition-all duration-500 ease-out ' +
+          'group-hover:scale-[1.02] group-hover:grayscale-0';
+
+        img.addEventListener('load', () => {
+          img.classList.remove('opacity-0');
+          frame.classList.remove('animate-pulse');
+        });
+        img.addEventListener('error', () => {
+          frame.classList.remove('animate-pulse');
+          frame.innerHTML =
+            `<div class="grid h-full w-full place-items-center border border-white/10">` +
+            `<span class="font-mono text-xs text-gray-600">${escapeHTML(site.url)}</span></div>`;
+        });
+
+        frame.appendChild(img);
+
+        if (site.isNew) {
+          const badge = document.createElement('span');
+          badge.className =
+            'absolute left-3 top-3 border border-emerald-400/40 bg-black/70 px-1.5 py-0.5 ' +
+            'font-mono text-[10px] uppercase tracking-widest text-emerald-400 backdrop-blur-sm';
+          badge.textContent = 'New';
+          frame.appendChild(badge);
+        }
+
+        const caption = document.createElement('p');
+        caption.className = 'mt-2 truncate font-mono text-xs text-gray-500 transition-colors duration-200 group-hover:text-gray-300';
+        caption.textContent = site.url + (showDate && site.date
+          ? `  ·  ${site.date.toISOString().slice(0, 10)}`
+          : '');
+
+        a.append(frame, caption);
+        return a;
+      }
+
+      function render(sites) {
+        const sorted = [...sites].sort((x, y) => (y.date?.getTime() ?? -Infinity) - (x.date?.getTime() ?? -Infinity));
+        if (!sorted.length) throw new Error('The archive is empty.');
+
+        $('counter').textContent = String(sorted.length).padStart(5, '0');
+
+        const top5 = sorted.slice(0, 5).filter((s) => s.date);
+        if (top5.length) {
+          $('new-section').hidden = false;
+          const ng = $('new-grid');
+          top5.forEach((s) => ng.appendChild(card(s, true)));
+        }
+
+        $('archive-section').hidden = false;
+        $('archive-count').textContent = String(sorted.length).padStart(5, '0');
+        const g = $('grid');
+        sorted.forEach((s) => g.appendChild(card(s, false)));
+      }
+
+      function showError(message) {
+        $('loading').hidden = true;
+        document.querySelectorAll('main section, header').forEach((el) => (el.hidden = true));
+        const err = $('error');
+        err.hidden = false;
+        err.querySelector('pre').textContent = message;
+      }
+
+      async function fetchText(url) {
+        const res = await fetch(url, { cache: 'no-store' });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const text = await res.text();
+        if (/^\s*<(?:!doctype|html)/i.test(text)) throw new Error('Got HTML instead of CSV (sheet not public?)');
+        return text;
+      }
+
+      async function loadSites() {
+        const sources = [
+          { url: SHEET_CSV, label: 'live sheet' },
+          { url: LOCAL_CSV, label: 'local snapshot' },
+        ];
+        for (const src of sources) {
+          try {
+            const rows = parseCSV(await fetchText(src.url)).slice(1); // drop header row
+            const sites = rows
+              .map(([rawUrl, rawDate]) => ({ url: normalizeURL(rawUrl ?? ''), date: parseDate(rawDate ?? '') }))
+              .filter((s) => /^[a-z0-9-]+(\.[a-z0-9-]+)+/i.test(s.url))
+              .map((s) => ({
+                ...s,
+                isNew: !!s.date && Date.now() - s.date.getTime() <= NEW_WINDOW_DAYS * 86400000,
+              }));
+            if (sites.length) return sites;
+            throw new Error('No valid rows.');
+          } catch (_) { /* fall through to next source */ }
+        }
+        throw new Error(
+          'FAILED TO LOAD ARCHIVE\n\n' +
+          'Could not reach the live Google Sheet or the local data/sites.csv snapshot.\n' +
+          'Check your connection and that the sheet is shared as "Anyone with the link".'
+        );
+      }
+
+      (async () => {
+        try {
+          render(await loadSites());
+        } catch (e) {
+          showError(e.message);
+          return;
+        }
+        $('loading').hidden = true;
+      })();
+    })();
+  </script>
+</body>
+</html>

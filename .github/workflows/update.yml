@@ -1,0 +1,61 @@
+name: update-archive
+
+# Runs daily at 17:00 Asia/Kolkata (11:30 UTC).
+# Pulls the latest CSV from the Google Sheet, snapshots it into data/,
+# and auto-commits so the site always ships with a fresh local fallback.
+
+on:
+  schedule:
+    - cron: "30 11 * * *" # 17:00 IST
+  workflow_dispatch: {} # allow manual runs from the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-archive
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch and snapshot archive
+        env:
+          SHEET_URL: https://docs.google.com/spreadsheets/d/1XALmHbWxrLTg1hVp4tSzk_3p3vpWoDGXVjwgmSsjjcA/export?format=csv
+        run: |
+          set -euo pipefail
+          curl -fsSL --retry 3 --retry-delay 5 -o /tmp/sites.csv "$SHEET_URL"
+
+          # Guard against Google returning a login page instead of CSV
+          if head -c 200 /tmp/sites.csv | grep -qi '<'; then
+            echo "::error::Sheet is not public — got HTML instead of CSV."
+            exit 1
+          fi
+
+          old="none"
+          [ -f data/sites.csv ] && old=$(md5sum < data/sites.csv | cut -d' ' -f1)
+          new=$(md5sum < /tmp/sites.csv | cut -d' ' -f1)
+
+          if [ "$old" != "$new" ]; then
+            mkdir -p data/history
+            cp /tmp/sites.csv data/sites.csv
+            cp /tmp/sites.csv "data/history/$(date -u +%Y-%m-%d).csv"
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "Archive updated."
+          else
+            echo "No changes since last run."
+          fi
+        id: fetch
+
+      - name: Commit if changed
+        if: steps.fetch.outputs.changed == 'true'
+        run: |
+          set -euo pipefail
+          git config user.name  "mnmm-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          git commit -m "chore(data): daily archive sync $(date -u +%Y-%m-%d)"
+          git push
