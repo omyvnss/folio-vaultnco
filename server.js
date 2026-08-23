@@ -152,7 +152,56 @@ function fetchSheet() {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Sync: pull sheet -> write JSON + CSV + dated history snapshot       */
+/*  URL health check — verify each site is actually live                */
+/* ------------------------------------------------------------------ */
+
+function checkUrl(url, timeout = 8000) {
+  return new Promise((resolve) => {
+    let resolved = false;
+    const done = (status) => { if (!resolved) { resolved = true; resolve(status); } };
+
+    const timer = setTimeout(() => done('dead'), timeout);
+
+    function follow(targetUrl, redirects = 0) {
+      if (redirects > 5) { clearTimeout(timer); done('dead'); return; }
+      const mod = targetUrl.startsWith('https') ? https : require('http');
+      mod.get(targetUrl, { timeout: timeout - 1000, headers: { 'User-Agent': 'Mozilla/5.0' } }, (res) => {
+        if ([301, 302, 303, 307, 308].includes(res.statusCode) && res.headers.location) {
+          res.resume();
+          const loc = res.headers.location.startsWith('http')
+            ? res.headers.location
+            : new URL(res.headers.location, targetUrl).href;
+          return follow(loc, redirects + 1);
+        }
+        res.resume();
+        clearTimeout(timer);
+        done(res.statusCode >= 200 && res.statusCode < 400 ? 'ok' : 'dead');
+      }).on('error', () => { clearTimeout(timer); done('dead'); })
+        .on('timeout', () => { clearTimeout(timer); done('dead'); });
+    }
+
+    follow(url.startsWith('http') ? url : `https://${url}`);
+  });
+}
+
+async function verifySites(sites, concurrency = 10) {
+  let live = 0, dead = 0;
+  const queue = [...sites];
+  async function worker() {
+    while (queue.length) {
+      const site = queue.shift();
+      site.status = await checkUrl(site.url);
+      if (site.status === 'ok') live++;
+      else { dead++; console.log(`  ✗ ${site.url} (${site.status})`); }
+    }
+  }
+  const workers = Array.from({ length: concurrency }, () => worker());
+  await Promise.all(workers);
+  return { live, dead };
+}
+
+/* ------------------------------------------------------------------ */
+/*  Sync: pull sheet -> verify -> write JSON + CSV + history            */
 /* ------------------------------------------------------------------ */
 
 async function sync() {
@@ -165,11 +214,18 @@ async function sync() {
   if (/^\s*<(?:!doctype|html)/i.test(raw)) throw new Error('Got HTML instead of CSV (sheet not public?)');
   if (!raw.trim()) throw new Error('Empty response from Google');
 
-  const sites = csvToSites(raw);
+  const allSites = csvToSites(raw);
+  console.log(`Found ${allSites.length} sites in sheet. Verifying...`);
+
+  // verify each site is actually live
+  const { live, dead } = await verifySites(allSites);
+  console.log(`Verification: ${live} live, ${dead} dead/unpublished.`);
+
+  const sites = allSites.filter((s) => s.status === 'ok');
   fs.mkdirSync(DATA_DIR, { recursive: true });
 
   const payload = JSON.stringify(
-    { count: sites.length, updated: new Date().toISOString(), sites },
+    { count: sites.length, total: allSites.length, dead, updated: new Date().toISOString(), sites },
     null,
     2
   );
@@ -181,12 +237,12 @@ async function sync() {
   fs.mkdirSync(historyDir, { recursive: true });
   fs.copyFileSync(SITE_CSV, path.join(historyDir, `${new Date().toISOString().slice(0, 10)}.csv`));
 
-  // pre-cache Microlink screenshots locally
+  // pre-cache screenshots only for live sites
   console.log('Caching screenshots...');
   const { cached, skipped } = await cacheScreenshots(sites);
   console.log(`Screenshots: ${cached} downloaded, ${skipped} skipped/cached.`);
 
-  console.log(`Synced ${sites.length} sites from the Google Sheet.`);
+  console.log(`Synced ${sites.length} live sites (filtered from ${allSites.length}).`);
   return sites;
 }
 

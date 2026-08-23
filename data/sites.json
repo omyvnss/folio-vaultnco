@@ -1,246 +1,283 @@
 {
-  "count": 60,
-  "updated": "2026-08-23T20:07:13.276Z",
+  "count": 55,
+  "total": 60,
+  "dead": 5,
+  "updated": "2026-08-23T21:23:09.387Z",
   "sites": [
     {
       "url": "nilseller.com",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "vanjek.co",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "saivamshi.aethoscompany.in",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "nachi.design",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "loganliffick.com",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "senyil.com",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "saadb.me",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "adikris.in",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "shedsgns.me",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "diklein.com",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "nelson.co",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "newsystems.ca",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "aniketpawar.com",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "tldr.aryank.space",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "dqnamo.com",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "gharbi.me",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "sorenblank.com",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "tanvir.io",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "hamzaalabou.com",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "stylessh.dev",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "joshmillgate.co.uk",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "mocarski.design",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "jespervos.com",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "dom.fyi",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "gustavofior.com",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "suepark.xyz",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "blackduke.com",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "designerdada.com",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "nutlope.com",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "adriengriveau.com",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "bastienallard.com",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "fennell.cv",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "moeritz.io",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "pham.codes",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "jckhlry.com",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "montyanderson.net",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "alasdairmonk.com",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "sonderpoems.com",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "rokadakia.com",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "pqoqubbw.dev",
-      "date": "2026-08-21"
-    },
-    {
-      "url": "offscript.cc",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "ragojose.com",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "victorlbq.fr",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "baytas.net",
-      "date": "2026-08-21"
-    },
-    {
-      "url": "prompt-files.com",
-      "date": "2026-08-21"
-    },
-    {
-      "url": "minnix.cv",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "anirnair.com",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "eric.rest",
-      "date": "2026-08-21"
-    },
-    {
-      "url": "moodie.blog",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "fennell.cv",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "mononym.com",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "15min.design",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "ash.cv",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "faizanwar.com",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "tino.works",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "leerob.com",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "anzy.io",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "armond.me",
-      "date": "2026-08-21"
-    },
-    {
-      "url": "535.studio",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     },
     {
       "url": "margins.app",
-      "date": "2026-08-21"
+      "date": "2026-08-21",
+      "status": "ok"
     }
   ]
 }

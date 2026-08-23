@@ -26,7 +26,7 @@ jobs:
         with:
           node-version: 20
 
-      - name: Sync from Google Sheet
+      - name: Sync from Google Sheet (with verification)
         run: node server.js sync
 
       - name: Capture missing screenshots
