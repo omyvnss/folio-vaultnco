@@ -209,7 +209,8 @@
       flex-shrink: 0;
     }
     .curation-link .favicon-wrap {
-      display: flex;
+      position: relative;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
       width: 32px;
@@ -217,14 +218,15 @@
       background: var(--color-neutral-900);
       border: 1px solid var(--color-neutral-200);
       border-radius: 8px;
-      overflow: hidden;
       flex-shrink: 0;
     }
     .curation-link .favicon-wrap img {
-      width: 22px;
-      height: 22px;
-      object-fit: contain;
-      object-position: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 20px;
+      height: 20px;
     }
 
     /* ================================================================
