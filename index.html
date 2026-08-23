@@ -96,30 +96,6 @@
     }
 
     /* ================================================================
-       Header (clone-specific: MNMM.CLONE / ARCHIVE)
-       ================================================================ */
-    .site-header {
-      border-bottom: 1px solid var(--color-neutral-100);
-    }
-    .site-header nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 18px 0;
-      font-family: var(--font-mono);
-      font-size: var(--font-xsm);
-      letter-spacing: 0.08em;
-    }
-    .site-header a {
-      text-decoration: none;
-      transition: 0.2s;
-    }
-    .site-header .brand { color: var(--color-foreground); }
-    .site-header .brand:hover { color: var(--color-foreground-subtle); }
-    .site-header .archive-link { color: var(--color-foreground-subtler); }
-    .site-header .archive-link:hover { color: var(--color-foreground); }
-
-    /* ================================================================
        Hero — exact structure & spacing from the original
        ================================================================ */
     .hero { padding: 120px 0 60px; text-align: left; }
@@ -371,16 +347,6 @@
 </head>
 
 <body>
-
-  <!-- ============ HEADER ============ -->
-  <header class="site-header">
-    <nav class="container">
-      <a class="brand" href="#">MNMM.CLONE</a>
-      <a class="archive-link"
-         href="https://docs.google.com/spreadsheets/d/1XALmHbWxrLTg1hVp4tSzk_3p3vpWoDGXVjwgmSsjjcA/export?format=csv"
-         target="_blank" rel="noreferrer">ARCHIVE</a>
-    </nav>
-  </header>
 
   <div class="pattern"></div>
 
