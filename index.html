@@ -5,117 +5,440 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MNMM.CLONE — Minimal Websites Directory</title>
   <meta name="description" content="A carefully curated collection of minimal websites.">
-  <meta name="theme-color" content="#000000">
+  <meta name="theme-color" content="#18181b">
 
-  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Geist:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            display: ['Gloock', 'serif'],
-            sans: ['Geist', 'ui-sans-serif', 'sans-serif'],
-            mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
-          },
-        },
-      },
-    };
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 
   <style>
-    ::selection { color:#000; background:#fff; }
-    html { scroll-behavior:smooth; }
-    body { -webkit-font-smoothing:antialiased; }
+    /* ================================================================
+       Design tokens — extracted 1:1 from mnmm.xyz (inverted zinc scale)
+       ================================================================ */
+    :root {
+      --color-neutral-50:  #09090b;
+      --color-neutral-100: #18181b;
+      --color-neutral-200: #27272a;
+      --color-neutral-300: #3f3f46;
+      --color-neutral-400: #52525b;
+      --color-neutral-500: #71717a;
+      --color-neutral-600: #a1a1aa;
+      --color-neutral-700: #d4d4d8;
+      --color-neutral-800: #e4e4e7;
+      --color-neutral-900: #f4f4f5;
+      --color-neutral-950: #fafafa;
 
-    /* shimmering tagline, like the original */
-    .shiny {
-      background: linear-gradient(110deg, #fff 25%, #52525b 45%, #fff 65%);
-      background-size: 200% 100%;
+      --color-foreground:         var(--color-neutral-950);
+      --color-foreground-subtle:  var(--color-neutral-600);
+      --color-foreground-subtler: var(--color-neutral-500);
+
+      --font-display: "Gloock", serif;
+      --font-sans:    "Geist", ui-sans-serif, sans-serif;
+      --font-mono:    "IBM Plex Mono", ui-monospace, monospace;
+
+      --font-base-size: 1rem;
+      --font-pos-ratio: 1.2;
+      --font-neg-ratio: 1.125;
+      --font-base: var(--font-base-size);
+      --font-md:   calc(var(--font-base) * var(--font-pos-ratio));
+      --font-sm:   calc(var(--font-base) / var(--font-neg-ratio));
+      --font-xsm:  calc(var(--font-sm) / var(--font-neg-ratio));
+      --font-2xsm: calc(var(--font-xsm) / var(--font-neg-ratio));
+      --font-3xsm: calc(var(--font-2xsm) / var(--font-neg-ratio));
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; font: inherit; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      font-size: var(--font-base);
+      color: var(--color-foreground);
+      background-color: var(--color-neutral-50);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection {
+      color: var(--color-foreground);
+      background-color: var(--color-neutral-300);
+    }
+
+    :focus-visible { outline: 1px solid var(--color-foreground); outline-offset: 3px; }
+
+    /* ================================================================
+       Pattern — decorative 40px grid fading out from top-left
+       ================================================================ */
+    .pattern {
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      z-index: -1;
+      width: 100%;
+      height: 400px;
+      background-color: var(--color-neutral-50);
+      background-image:
+        linear-gradient(var(--color-neutral-200) 1px, transparent 1px),
+        linear-gradient(to right, var(--color-neutral-200) 1px, var(--color-neutral-50) 1px);
+      background-size: 40px 40px;
+      opacity: 0.6;
+      -webkit-mask-image: radial-gradient(circle at top left, #000, transparent 400px);
+      mask-image: radial-gradient(circle at top left, #000, transparent 400px);
+    }
+
+    /* ================================================================
+       Container
+       ================================================================ */
+    .container {
+      width: 90%;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* ================================================================
+       Header (clone-specific: MNMM.CLONE / ARCHIVE)
+       ================================================================ */
+    .site-header {
+      border-bottom: 1px solid var(--color-neutral-100);
+    }
+    .site-header nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+      font-family: var(--font-mono);
+      font-size: var(--font-xsm);
+      letter-spacing: 0.08em;
+    }
+    .site-header a {
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    .site-header .brand { color: var(--color-foreground); }
+    .site-header .brand:hover { color: var(--color-foreground-subtle); }
+    .site-header .archive-link { color: var(--color-foreground-subtler); }
+    .site-header .archive-link:hover { color: var(--color-foreground); }
+
+    /* ================================================================
+       Hero — exact structure & spacing from the original
+       ================================================================ */
+    .hero { padding: 120px 0 60px; text-align: left; }
+    .hero img {
+      display: block;
+      width: 28px;
+      height: 28px;
+      margin-bottom: 36px;
+    }
+    .hero h1 {
+      font-weight: 500;
+      color: var(--color-foreground);
+    }
+    .hero .desc {
+      margin-top: 12px;
+      color: var(--color-foreground-subtle);
+    }
+    .hero .tagline {
+      margin-top: 2px;
+      color: var(--color-foreground-subtler);
+    }
+    .hero .counter {
+      margin-top: 20px;
+      font-size: var(--font-sm);
+      color: var(--color-foreground-subtler);
+    }
+    .hero .counter span {
+      font-family: var(--font-mono);
+      color: var(--color-foreground-subtle);
+    }
+
+    /* Shiny text — exact gradient/animation values from _shinyText_ */
+    .shiny-text {
+      display: inline-block;
+      color: #a1a1aaa4;
+      background: linear-gradient(120deg, #fff0 40%, #ffffffe5, #fff0 60%);
       -webkit-background-clip: text;
       background-clip: text;
-      color: transparent;
+      background-size: 200% 100%;
       animation: shine 5s linear infinite;
     }
-    @keyframes shine { to { background-position: -200% 0; } }
-
-    @media (prefers-reduced-motion: reduce) {
-      .shiny { animation: none; }
-      * { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    @keyframes shine {
+      0%   { background-position: 100%; }
+      100% { background-position: -100%; }
     }
 
-    :focus-visible { outline: 1px solid #fff; outline-offset: 3px; }
+    /* Random button — roll-up hover, like the original _button_ */
+    .random-button {
+      position: relative;
+      display: inline-flex;
+      align-items: baseline;
+      column-gap: 1px;
+      margin-top: 8px;
+      font-size: var(--font-sm);
+      font-weight: 500;
+      color: var(--color-foreground-subtle);
+      background: var(--color-neutral-50);
+      border: none;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .random-button:hover { color: var(--color-foreground); }
+    .random-button:active { transform: scale(0.95); }
+    .random-button div { height: 1rem; overflow: hidden; }
+    .random-button div span { display: block; transition: 0.3s; }
+    .random-button:hover div span { transform: translateY(-100%); }
+
+    /* ================================================================
+       Section labels (Top 5 New / Archive) — clone additions,
+       styled strictly with the original palette
+       ================================================================ */
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .section-label h2 {
+      font-family: var(--font-mono);
+      font-size: var(--font-xsm);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--color-foreground-subtler);
+      white-space: nowrap;
+    }
+    .section-label::after {
+      content: "";
+      height: 1px;
+      width: 100%;
+      background: var(--color-neutral-200);
+    }
+
+    /* ================================================================
+       Websites grid — exact grid/gap/card CSS from the original
+       ================================================================ */
+    .websites {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 36px 32px;
+    }
+    .archive { padding-bottom: 40px; }
+    .topnew { margin-bottom: 64px; }
+
+    .website { width: 100%; }
+
+    .website .image {
+      position: relative;
+      display: block;
+    }
+    .website .image img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      background-color: var(--color-neutral-100);
+      border: 1px solid var(--color-neutral-200);
+    }
+
+    /* Hover overlay — blur veil + scaling uppercase name (original behavior) */
+    .website .image p {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      font-size: var(--font-2xsm);
+      font-weight: 500;
+      color: var(--color-foreground);
+      text-transform: uppercase;
+      pointer-events: none;
+      background-color: #090b0bb3;
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      border: 1px solid var(--color-neutral-200);
+      opacity: 0;
+      transition: 0.2s;
+    }
+    .website .image p span {
+      display: block;
+      max-width: 92%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: 0.2s;
+      transform: scale(0.5);
+    }
+    .website .image:hover p { opacity: 1; }
+    .website .image:hover p span { transform: scale(1); }
+
+    /* NEW badge — sits on the image corner */
+    .website .badge-new {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      padding: 3px 7px;
+      font-family: var(--font-mono);
+      font-size: var(--font-3xsm);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #6ee7a0;
+      background-color: #09090bd9;
+      border: 1px solid var(--color-neutral-300);
+    }
+
+    /* Details row under the image (original: right-aligned mono link) */
+    .website .details {
+      display: flex;
+      column-gap: 8px;
+      align-items: center;
+      justify-content: flex-end;
+      margin-top: 12px;
+      font-size: var(--font-sm);
+    }
+    .website .details .link {
+      font-family: var(--font-mono);
+      font-size: var(--font-xsm);
+      color: var(--color-foreground-subtle);
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    .website .details .link:hover { color: var(--color-foreground); }
+    .website .details .date {
+      font-family: var(--font-mono);
+      font-size: var(--font-3xsm);
+      color: var(--color-neutral-400);
+    }
+
+    /* ================================================================
+       Footer — original structure
+       ================================================================ */
+    .footer { padding: 50px 0; }
+    .footer .curator {
+      font-size: var(--font-sm);
+      color: var(--color-foreground-subtler);
+    }
+    .footer .curator a {
+      font-weight: 500;
+      color: var(--color-foreground-subtle);
+      text-decoration: none;
+    }
+    .footer .curator a:hover { color: var(--color-foreground); }
+    .footer .meta {
+      float: right;
+      font-family: var(--font-mono);
+      font-size: var(--font-3xsm);
+      color: var(--color-neutral-400);
+    }
+    .footer .meta:hover { color: var(--color-foreground-subtler); }
+
+    /* ================================================================
+       Overlays
+       ================================================================ */
+    #loading, #error {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      display: grid;
+      place-items: center;
+      background-color: var(--color-neutral-50);
+      padding: 24px;
+    }
+    #loading[hidden], #error[hidden] { display: none; }
+    #loading p {
+      font-family: var(--font-mono);
+      font-size: var(--font-sm);
+      letter-spacing: 0.15em;
+      color: var(--color-foreground-subtler);
+      animation: pulse 1.6s ease-in-out infinite;
+    }
+    @keyframes pulse { 50% { opacity: 0.35; } }
+    #error pre {
+      font-family: var(--font-mono);
+      font-size: var(--font-sm);
+      line-height: 1.7;
+      color: var(--color-foreground);
+      text-align: center;
+      white-space: pre-wrap;
+      max-width: 40rem;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .shiny-text { animation: none; }
+      * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+      html { scroll-behavior: auto; }
+    }
+
+    @media (max-width: 480px) {
+      .hero { padding: 80px 0 48px; }
+    }
   </style>
 </head>
 
-<body class="bg-black font-sans text-white">
+<body>
 
   <!-- ============ HEADER ============ -->
-  <header class="border-b border-white/10">
-    <nav class="mx-auto flex max-w-5xl items-center justify-between px-6 py-5 font-mono text-sm tracking-widest">
-      <a href="#" class="text-white transition-colors hover:text-gray-400">MNMM.CLONE</a>
-      <a href="https://docs.google.com/spreadsheets/d/1XALmHbWxrLTg1hVp4tSzk_3p3vpWoDGXVjwgmSsjjcA/export?format=csv"
-         target="_blank" rel="noopener"
-         class="text-gray-500 transition-colors hover:text-white">ARCHIVE</a>
+  <header class="site-header">
+    <nav class="container">
+      <a class="brand" href="#">MNMM.CLONE</a>
+      <a class="archive-link"
+         href="https://docs.google.com/spreadsheets/d/1XALmHbWxrLTg1hVp4tSzk_3p3vpWoDGXVjwgmSsjjcA/export?format=csv"
+         target="_blank" rel="noreferrer">ARCHIVE</a>
     </nav>
   </header>
 
-  <!-- ============ HERO ============ -->
-  <section class="mx-auto max-w-3xl px-6 pb-20 pt-24 text-center md:pt-28">
-    <svg class="mx-auto h-8 w-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-      <rect x="4" y="4" width="16" height="16"></rect>
-    </svg>
-    <h1 class="mt-10 font-display text-6xl leading-none md:text-7xl">Minimum</h1>
-    <p class="mt-5 text-gray-400">Minimal websites directory.</p>
-    <p class="shiny mt-2 inline-block text-lg">Because less, is more.</p>
-    <p class="mt-12 font-mono text-xs tracking-wider text-gray-500">
-      <span id="counter" class="text-gray-300">·····</span>&nbsp;websites collected.
-    </p>
-  </section>
+  <div class="pattern"></div>
 
-  <!-- ============ DIRECTORY ============ -->
-  <main class="mx-auto max-w-5xl px-6 pb-28">
+  <!-- ============ PAGE ============ -->
+  <main class="container">
 
-    <!-- Top 5 new -->
-    <section id="new-section" hidden aria-labelledby="new-label">
-      <div class="mb-8 flex items-center gap-4">
-        <h2 id="new-label" class="whitespace-nowrap font-mono text-xs uppercase tracking-[0.25em] text-emerald-400">Top 5 New</h2>
-        <div class="h-px w-full bg-white/10"></div>
-      </div>
-      <div id="new-grid" class="grid grid-cols-1 gap-8 md:grid-cols-2"></div>
+    <!-- ============ HERO (original layout) ============ -->
+    <section class="hero" id="hero">
+      <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true">
+        <rect x="1" y="1" width="26" height="26" fill="none" stroke="#fafafa" stroke-width="2"></rect>
+        <rect x="8" y="8" width="12" height="12" fill="#fafafa"></rect>
+      </svg>
+      <h1>Minimum</h1>
+      <p class="desc">Minimal websites directory.</p>
+      <p class="tagline"><span class="shiny-text">Because less, is more.</span></p>
+      <p class="counter"><span id="counter">·····</span> websites collected.</p>
+      <button class="random-button" id="random-btn" type="button">
+        (<div><span>Random</span><span>Random</span></div>)
+      </button>
     </section>
 
-    <!-- Full archive -->
-    <section id="archive-section" hidden class="mt-20" aria-labelledby="archive-label">
-      <div class="mb-8 flex items-center gap-4">
-        <h2 id="archive-label" class="whitespace-nowrap font-mono text-xs uppercase tracking-[0.25em] text-gray-500">
-          Archive — <span id="archive-count">00000</span>
-        </h2>
-        <div class="h-px w-full bg-white/10"></div>
+    <!-- ============ TOP 5 NEW ============ -->
+    <section class="topnew" id="new-section" hidden aria-labelledby="new-label">
+      <div class="section-label">
+        <h2 id="new-label">Top 5 New</h2>
       </div>
-      <div id="grid" class="grid grid-cols-1 gap-8 md:grid-cols-2"></div>
+      <div class="websites" id="new-grid"></div>
+    </section>
+
+    <!-- ============ ARCHIVE ============ -->
+    <section class="archive" id="archive-section" hidden aria-labelledby="archive-label">
+      <div class="section-label">
+        <h2 id="archive-label">Archive — <span id="archive-count">00000</span></h2>
+      </div>
+      <div class="websites" id="grid"></div>
     </section>
 
   </main>
 
-  <!-- ============ FOOTER ============ -->
-  <footer class="border-t border-white/10">
-    <div class="mx-auto flex max-w-5xl flex-col gap-2 px-6 py-10 font-mono text-xs text-gray-500 sm:flex-row sm:items-center sm:justify-between">
-      <span>© 2026 MNMM.CLONE — a study in less.</span>
-      <a href="https://mnmm.xyz" target="_blank" rel="noopener" class="transition-colors hover:text-white">original — mnmm.xyz</a>
+  <!-- ============ FOOTER (original structure) ============ -->
+  <footer class="footer">
+    <div class="container">
+      <span class="meta"><a class="meta" href="https://mnmm.xyz" target="_blank" rel="noreferrer">mnmm.xyz</a></span>
+      <p class="curator">Curated by <a href="https://github.com/omyvnss" target="_blank" rel="noreferrer">Om Yaduvanshi</a>.</p>
     </div>
   </footer>
 
-  <!-- ============ STATUS OVERLAYS ============ -->
-  <div id="loading" class="fixed inset-0 z-50 grid place-items-center bg-black" role="status" aria-live="polite">
-    <p class="font-mono text-sm tracking-widest text-gray-500">LOADING<span class="animate-pulse">…</span></p>
+  <!-- ============ OVERLAYS ============ -->
+  <div id="loading" role="status" aria-live="polite">
+    <p>LOADING…</p>
   </div>
-
-  <div id="error" hidden class="fixed inset-0 z-50 grid place-items-center bg-black px-6" role="alert">
-    <pre class="max-w-xl whitespace-pre-wrap text-center font-mono text-sm leading-relaxed text-white"></pre>
+  <div id="error" hidden role="alert">
+    <pre></pre>
   </div>
 
   <!-- ============ APP ============ -->
@@ -123,163 +446,188 @@
     (() => {
       'use strict';
 
+      const API_SITES = 'api/sites';       // served by server.js (localhost backend)
+      const DATA_JSON = 'data/sites.json'; // committed by the daily cron (static hosts)
       const SHEET_CSV = 'https://docs.google.com/spreadsheets/d/1XALmHbWxrLTg1hVp4tSzk_3p3vpWoDGXVjwgmSsjjcA/export?format=csv';
-      const LOCAL_CSV = 'data/sites.csv'; // snapshot committed by the daily cron
+      const LOCAL_CSV = 'data/sites.csv';
       const NEW_WINDOW_DAYS = 7;
 
       const $ = (id) => document.getElementById(id);
 
-      const escapeHTML = (s) =>
-        String(s).replace(/[&<>"']/g, (c) =>
-          ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-
       const normalizeURL = (raw) =>
-        raw.trim().replace(/^https?:\/\//i, '').replace(/\/+$/, '');
-
-      // Minimal RFC-4180-ish parser: handles quoted fields, escaped quotes, CRLF.
-      function parseCSV(text) {
-        const rows = [];
-        let row = [], field = '', inQuotes = false;
-        for (let i = 0; i < text.length; i++) {
-          const c = text[i];
-          if (inQuotes) {
-            if (c === '"') {
-              if (text[i + 1] === '"') { field += '"'; i++; }
-              else inQuotes = false;
-            } else field += c;
-          } else if (c === '"') inQuotes = true;
-          else if (c === ',') { row.push(field); field = ''; }
-          else if (c === '\n' || c === '\r') {
-            if (c === '\r' && text[i + 1] === '\n') i++;
-            row.push(field); field = '';
-            if (row.length > 1 || row[0] !== '') rows.push(row);
-            row = [];
-          } else field += c;
-        }
-        row.push(field);
-        if (row.length > 1 || row[0] !== '') rows.push(row);
-        return rows;
-      }
+        String(raw ?? '').trim().replace(/^https?:\/\//i, '').replace(/\/+$/, '');
 
       function parseDate(s) {
-        if (!s || !/^\d{4}-\d{2}-\d{2}$/.test(s.trim())) return null;
-        const d = new Date(s.trim() + 'T00:00:00Z');
-        return isNaN(d) ? null : d;
+        s = String(s ?? '').trim();
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(s)) return null;
+        const d = new Date(s + 'T00:00:00Z');
+        return isNaN(d.getTime()) ? null : d;
       }
 
       const screenshotSrc = (url) =>
         `https://api.microlink.io/?url=https://${encodeURIComponent(url)}&screenshot=true&meta=false&embed=screenshot.url`;
 
-      function card(site, showDate) {
-        const a = document.createElement('a');
-        a.href = `https://${site.url}`;
-        a.target = '_blank';
-        a.rel = 'noopener';
-        a.className = 'group block';
-
-        const frame = document.createElement('div');
-        frame.className = 'relative aspect-video overflow-hidden bg-neutral-900';
-
-        const img = document.createElement('img');
-        img.alt = `Screenshot of ${site.url}`;
-        img.loading = 'lazy';
-        img.decoding = 'async';
-        img.src = screenshotSrc(site.url);
-        img.className =
-          'h-full w-full object-cover grayscale opacity-0 transition-all duration-500 ease-out ' +
-          'group-hover:scale-[1.02] group-hover:grayscale-0';
-
-        img.addEventListener('load', () => {
-          img.classList.remove('opacity-0');
-          frame.classList.remove('animate-pulse');
-        });
-        img.addEventListener('error', () => {
-          frame.classList.remove('animate-pulse');
-          frame.innerHTML =
-            `<div class="grid h-full w-full place-items-center border border-white/10">` +
-            `<span class="font-mono text-xs text-gray-600">${escapeHTML(site.url)}</span></div>`;
-        });
-
-        frame.appendChild(img);
-
-        if (site.isNew) {
-          const badge = document.createElement('span');
-          badge.className =
-            'absolute left-3 top-3 border border-emerald-400/40 bg-black/70 px-1.5 py-0.5 ' +
-            'font-mono text-[10px] uppercase tracking-widest text-emerald-400 backdrop-blur-sm';
-          badge.textContent = 'New';
-          frame.appendChild(badge);
+      // Minimal RFC-4180-ish CSV parser (quoted fields, escaped quotes, CRLF)
+      function parseCSV(text) {
+        const rows = [];
+        let row = [], field = '', inQ = false;
+        for (let i = 0; i < text.length; i++) {
+          const c = text[i];
+          if (inQ) {
+            if (c === '"') {
+              if (text[i + 1] === '"') { field += '"'; i++; } else inQ = false;
+            } else field += c;
+          } else if (c === '"') inQ = true;
+          else if (c === ',') { row.push(field); field = ''; }
+          else if (c === '\n' || c === '\r') {
+            if (c === '\r' && text[i + 1] === '\n') i++;
+            row.push(field); field = '';
+            if (row.length > 1 || row[0].trim()) rows.push(row);
+            row = [];
+          } else field += c;
         }
-
-        const caption = document.createElement('p');
-        caption.className = 'mt-2 truncate font-mono text-xs text-gray-500 transition-colors duration-200 group-hover:text-gray-300';
-        caption.textContent = site.url + (showDate && site.date
-          ? `  ·  ${site.date.toISOString().slice(0, 10)}`
-          : '');
-
-        a.append(frame, caption);
-        return a;
-      }
-
-      function render(sites) {
-        const sorted = [...sites].sort((x, y) => (y.date?.getTime() ?? -Infinity) - (x.date?.getTime() ?? -Infinity));
-        if (!sorted.length) throw new Error('The archive is empty.');
-
-        $('counter').textContent = String(sorted.length).padStart(5, '0');
-
-        const top5 = sorted.slice(0, 5).filter((s) => s.date);
-        if (top5.length) {
-          $('new-section').hidden = false;
-          const ng = $('new-grid');
-          top5.forEach((s) => ng.appendChild(card(s, true)));
-        }
-
-        $('archive-section').hidden = false;
-        $('archive-count').textContent = String(sorted.length).padStart(5, '0');
-        const g = $('grid');
-        sorted.forEach((s) => g.appendChild(card(s, false)));
-      }
-
-      function showError(message) {
-        $('loading').hidden = true;
-        document.querySelectorAll('main section, header').forEach((el) => (el.hidden = true));
-        const err = $('error');
-        err.hidden = false;
-        err.querySelector('pre').textContent = message;
+        row.push(field);
+        if (row.length > 1 || row[0].trim()) rows.push(row);
+        return rows;
       }
 
       async function fetchText(url) {
         const res = await fetch(url, { cache: 'no-store' });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const text = await res.text();
-        if (/^\s*<(?:!doctype|html)/i.test(text)) throw new Error('Got HTML instead of CSV (sheet not public?)');
+        if (/^\s*<(?:!doctype|html)/i.test(text)) throw new Error('Got HTML instead of data');
         return text;
       }
 
+      function toSites(list) {
+        return list
+          .map((s) => ({ url: normalizeURL(s?.url ?? s), date: parseDate(s?.date) }))
+          .filter((s) => /^[a-z0-9-]+(\.[a-z0-9-]+)+/i.test(s.url))
+          .map((s) => ({
+            ...s,
+            isNew: !!s.date && Date.now() - s.date.getTime() <= NEW_WINDOW_DAYS * 86400000,
+          }));
+      }
+
       async function loadSites() {
-        const sources = [
-          { url: SHEET_CSV, label: 'live sheet' },
-          { url: LOCAL_CSV, label: 'local snapshot' },
-        ];
-        for (const src of sources) {
-          try {
-            const rows = parseCSV(await fetchText(src.url)).slice(1); // drop header row
-            const sites = rows
-              .map(([rawUrl, rawDate]) => ({ url: normalizeURL(rawUrl ?? ''), date: parseDate(rawDate ?? '') }))
-              .filter((s) => /^[a-z0-9-]+(\.[a-z0-9-]+)+/i.test(s.url))
-              .map((s) => ({
-                ...s,
-                isNew: !!s.date && Date.now() - s.date.getTime() <= NEW_WINDOW_DAYS * 86400000,
-              }));
-            if (sites.length) return sites;
-            throw new Error('No valid rows.');
-          } catch (_) { /* fall through to next source */ }
-        }
+        // 1) backend API (server.js)  2) committed snapshot  3) live sheet  4) raw csv
+        try {
+          const json = JSON.parse(await fetchText(API_SITES));
+          const sites = toSites(json.sites || []);
+          if (sites.length) return sites;
+        } catch (_) {}
+        try {
+          const json = JSON.parse(await fetchText(DATA_JSON));
+          const sites = toSites(json.sites || []);
+          if (sites.length) return sites;
+        } catch (_) {}
+        try {
+          const rows = parseCSV(await fetchText(SHEET_CSV)).slice(1);
+          const sites = toSites(rows.map(([u, d]) => ({ url: u, date: d })));
+          if (sites.length) return sites;
+        } catch (_) {}
+        try {
+          const rows = parseCSV(await fetchText(LOCAL_CSV)).slice(1);
+          const sites = toSites(rows.map(([u, d]) => ({ url: u, date: d })));
+          if (sites.length) return sites;
+        } catch (_) {}
         throw new Error(
           'FAILED TO LOAD ARCHIVE\n\n' +
-          'Could not reach the live Google Sheet or the local data/sites.csv snapshot.\n' +
-          'Check your connection and that the sheet is shared as "Anyone with the link".'
+          'No data source was reachable.\n' +
+          'Fix: run "node server.js" (it syncs on start),\n' +
+          'or check that the Google Sheet is shared as "Anyone with the link".'
         );
+      }
+
+      /* ---------------- rendering (original card anatomy) ---------------- */
+
+      function card(site, showDate) {
+        const wrap = document.createElement('div');
+        wrap.className = 'website';
+
+        const imageLink = document.createElement('a');
+        imageLink.className = 'image';
+        imageLink.href = `https://${site.url}`;
+        imageLink.target = '_blank';
+        imageLink.rel = 'noreferrer';
+
+        const img = document.createElement('img');
+        img.alt = `Screenshot of ${site.url}`;
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        img.src = screenshotSrc(site.url);
+        img.addEventListener('error', () => {
+          img.remove();
+        });
+
+        const overlay = document.createElement('p');
+        const overlaySpan = document.createElement('span');
+        overlaySpan.textContent = site.url;
+        overlay.appendChild(overlaySpan);
+
+        imageLink.append(img, overlay);
+
+        if (site.isNew) {
+          const badge = document.createElement('span');
+          badge.className = 'badge-new';
+          badge.textContent = 'New';
+          imageLink.appendChild(badge);
+        }
+
+        const details = document.createElement('div');
+        details.className = 'details';
+
+        if (showDate && site.date) {
+          const date = document.createElement('span');
+          date.className = 'date';
+          date.textContent = site.date.toISOString().slice(0, 10);
+          details.appendChild(date);
+        }
+
+        const link = document.createElement('a');
+        link.className = 'link';
+        link.href = `https://${site.url}`;
+        link.target = '_blank';
+        link.rel = 'noreferrer';
+        link.textContent = site.url;
+        details.appendChild(link);
+
+        wrap.append(imageLink, details);
+        return wrap;
+      }
+
+      function render(sites) {
+        const sorted = [...sites].sort(
+          (a, b) => (b.date?.getTime() ?? -Infinity) - (a.date?.getTime() ?? -Infinity)
+        );
+        if (!sorted.length) throw new Error('The archive is empty.');
+
+        const padded = String(sorted.length).padStart(5, '0');
+        $('counter').textContent = padded;
+
+        const top5 = sorted.slice(0, 5).filter((s) => s.date);
+        if (top5.length) {
+          $('new-section').hidden = false;
+          top5.forEach((s) => $('new-grid').appendChild(card(s, true)));
+        }
+
+        $('archive-section').hidden = false;
+        $('archive-count').textContent = padded;
+        sorted.forEach((s) => $('grid').appendChild(card(s, false)));
+
+        $('random-btn').addEventListener('click', () => {
+          const cards = $('grid').children;
+          const el = cards[Math.floor(Math.random() * cards.length)];
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+      }
+
+      function showError(message) {
+        $('loading').hidden = true;
+        document.querySelectorAll('.site-header, main section').forEach((el) => (el.hidden = true));
+        const err = $('error');
+        err.hidden = false;
+        err.querySelector('pre').textContent = message;
       }
 
       (async () => {
