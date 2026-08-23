@@ -21,6 +21,11 @@ const SITE_CSV  = path.join(DATA_DIR, 'sites.csv');
 const SHEET_CSV =
   'https://docs.google.com/spreadsheets/d/1XALmHbWxrLTg1hVp4tSzk_3p3vpWoDGXVjwgmSsjjcA/export?format=csv';
 
+const SCREENSHOT_DIR = path.join(DATA_DIR, 'screenshots');
+
+const microlinkSrc = (url) =>
+  `https://api.microlink.io/?url=https://${encodeURIComponent(url)}&screenshot=true&meta=false&embed=screenshot.url`;
+
 const MIME = {
   '.html': 'text/html; charset=utf-8',
   '.js':   'text/javascript; charset=utf-8',
@@ -29,6 +34,9 @@ const MIME = {
   '.csv':  'text/csv; charset=utf-8',
   '.svg':  'image/svg+xml',
   '.png':  'image/png',
+  '.webp': 'image/webp',
+  '.jpg':  'image/jpeg',
+  '.jpeg': 'image/jpeg',
 };
 
 /* ------------------------------------------------------------------ */
@@ -67,6 +75,58 @@ function csvToSites(csv) {
       date: /^\d{4}-\d{2}-\d{2}$/.test(String(date ?? '').trim()) ? date.trim() : null,
     }))
     .filter(s => /^[a-z0-9-]+(\.[a-z0-9-]+)+/i.test(s.url));
+}
+
+/* ------------------------------------------------------------------ */
+/*  Screenshot pre-caching                                             */
+/* ------------------------------------------------------------------ */
+
+function safeFilename(url) {
+  return url.replace(/[^a-z0-9.-]/gi, '_').replace(/\.{2,}/g, '.');
+}
+
+function downloadScreenshot(url, dest) {
+  return new Promise((resolve, reject) => {
+    if (fs.existsSync(dest)) return resolve('skip');
+    https.get(microlinkSrc(url), { headers: { 'User-Agent': 'mnmm-clone/1.0' } }, (res) => {
+      if ([301, 302, 307, 308].includes(res.statusCode) && res.headers.location) {
+        res.resume();
+        const loc = res.headers.location.startsWith('http')
+          ? res.headers.location
+          : new URL(res.headers.location, microlinkSrc(url)).href;
+        return downloadScreenshot(url, dest).then(resolve, reject);
+      }
+      if (res.statusCode !== 200) { res.resume(); return resolve('skip'); }
+      const chunks = [];
+      res.on('data', (c) => chunks.push(c));
+      res.on('end', () => {
+        const buf = Buffer.concat(chunks);
+        // microlink sometimes returns JSON error instead of image
+        if (buf[0] === 0x7b || buf[0] === 0x3c) return resolve('skip');
+        fs.writeFileSync(dest, buf);
+        resolve('ok');
+      });
+      res.on('error', () => resolve('skip'));
+    }).on('error', () => resolve('skip'));
+  });
+}
+
+async function cacheScreenshots(sites, concurrency = 6) {
+  fs.mkdirSync(SCREENSHOT_DIR, { recursive: true });
+  let cached = 0, skipped = 0;
+  const queue = [...sites];
+  async function worker() {
+    while (queue.length) {
+      const site = queue.shift();
+      const dest = path.join(SCREENSHOT_DIR, safeFilename(site.url) + '.webp');
+      const result = await downloadScreenshot(site.url, dest);
+      if (result === 'ok') cached++;
+      else skipped++;
+    }
+  }
+  const workers = Array.from({ length: concurrency }, () => worker());
+  await Promise.all(workers);
+  return { cached, skipped };
 }
 
 /* ------------------------------------------------------------------ */
@@ -120,6 +180,11 @@ async function sync() {
   const historyDir = path.join(DATA_DIR, 'history');
   fs.mkdirSync(historyDir, { recursive: true });
   fs.copyFileSync(SITE_CSV, path.join(historyDir, `${new Date().toISOString().slice(0, 10)}.csv`));
+
+  // pre-cache Microlink screenshots locally
+  console.log('Caching screenshots...');
+  const { cached, skipped } = await cacheScreenshots(sites);
+  console.log(`Screenshots: ${cached} downloaded, ${skipped} skipped/cached.`);
 
   console.log(`Synced ${sites.length} sites from the Google Sheet.`);
   return sites;

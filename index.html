@@ -465,7 +465,7 @@
       }
 
       const screenshotSrc = (url) =>
-        `https://api.microlink.io/?url=https://${encodeURIComponent(url)}&screenshot=true&meta=false&embed=screenshot.url`;
+        `data/screenshots/${url.replace(/[^a-z0-9.-]/gi, '_').replace(/\.{2,}/g, '.')}.webp`;
 
       // Minimal RFC-4180-ish CSV parser (quoted fields, escaped quotes, CRLF)
       function parseCSV(text) {
@@ -556,8 +556,10 @@
         img.loading = 'lazy';
         img.decoding = 'async';
         img.src = screenshotSrc(site.url);
-        img.addEventListener('error', () => {
-          img.remove();
+        img.addEventListener('error', function handler() {
+          img.removeEventListener('error', handler);
+          // fallback to Microlink live screenshot
+          img.src = `https://api.microlink.io/?url=https://${encodeURIComponent(site.url)}&screenshot=true&meta=false&embed=screenshot.url`;
         });
 
         const overlay = document.createElement('p');
