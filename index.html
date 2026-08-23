@@ -204,7 +204,7 @@
     .curation-link:hover { color: var(--color-foreground); }
     .curation-link:hover .arrow { transform: translateX(3px); }
     .curation-link .arrow {
-      color: #4ade80;
+      color: var(--color-foreground);
       transition: transform 0.2s;
       flex-shrink: 0;
     }
@@ -212,8 +212,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 28px;
-      height: 28px;
+      width: 32px;
+      height: 32px;
       background: var(--color-neutral-900);
       border: 1px solid var(--color-neutral-200);
       border-radius: 8px;
@@ -221,9 +221,10 @@
       flex-shrink: 0;
     }
     .curation-link .favicon-wrap img {
-      width: 18px;
-      height: 18px;
+      width: 22px;
+      height: 22px;
       object-fit: contain;
+      object-position: center;
     }
 
     /* ================================================================
@@ -402,7 +403,7 @@
           <path d="m12 5 7 7-7 7"></path>
         </svg>
         <span class="favicon-wrap">
-          <img src="https://vaultnco.store/apple-touch-icon.png" alt="vaultnco.store" width="18" height="18">
+          <img src="data/screenshots/vaultnco-favicon.png" alt="vaultnco.store" width="22" height="22">
         </span>
       </a>
 
