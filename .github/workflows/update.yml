@@ -1,14 +1,13 @@
 name: update-archive
 
 # Runs daily at 17:00 Asia/Kolkata (11:30 UTC).
-# Pulls the latest links from the Google Sheet via server.js sync,
-# snapshots them into data/, and auto-commits so the live site
-# always ships with fresh data.
+# Pulls the latest links from Google Sheet, captures missing screenshots,
+# and auto-commits so the live site always ships with fresh data.
 
 on:
   schedule:
     - cron: "30 11 * * *" # 17:00 IST daily
-  workflow_dispatch: {} # allow manual runs from the Actions tab
+  workflow_dispatch: {} # allow manual runs
 
 permissions:
   contents: write
@@ -30,6 +29,65 @@ jobs:
       - name: Sync from Google Sheet
         run: node server.js sync
 
+      - name: Capture missing screenshots
+        run: |
+          # Install headless Chrome for screenshot capture
+          sudo apt-get update -qq && sudo apt-get install -y -qq chromium-browser 2>/dev/null || true
+
+          # Find sites without screenshots and capture them
+          node -e "
+          const fs = require('fs');
+          const path = require('path');
+          const sites = JSON.parse(fs.readFileSync('data/sites.json')).sites;
+          const dir = 'data/screenshots';
+          const missing = sites.filter(s => {
+            const f = s.url.replace(/[^a-z0-9.-]/gi, '_').replace(/\.{2,}/g, '.') + '.webp';
+            return !fs.existsSync(path.join(dir, f));
+          });
+          console.log(missing.length + ' sites need screenshots');
+          if (missing.length > 0) {
+            missing.forEach(s => console.log('  -', s.url));
+            // Output list for the next step
+            fs.writeFileSync('/tmp/missing.txt', missing.map(s => s.url).join('\n'));
+          }
+          " || true
+
+          if [ -f /tmp/missing.txt ] && [ -s /tmp/missing.txt ]; then
+            echo "Capturing $(wc -l < /tmp/missing.txt) screenshots..."
+            while IFS= read -r url; do
+              filename=$(echo "$url" | sed 's/[^a-z0-9.-]/_/g' | sed 's/\.\.\././g')
+              timeout 20 chromium-browser --headless --disable-gpu --no-sandbox --disable-dev-shm-usage \
+                --screenshot="data/screenshots/${filename}.png" --window-size=1280,800 \
+                --hide-scrollbars --virtual-time-budget=5000 \
+                "https://${url}" 2>/dev/null || true
+
+              # Convert to webp if chromium installed cwebp
+              if command -v cwebp &>/dev/null && [ -f "data/screenshots/${filename}.png" ]; then
+                cwebp -q 75 "data/screenshots/${filename}.png" -o "data/screenshots/${filename}.webp" 2>/dev/null
+                rm "data/screenshots/${filename}.png"
+              fi
+            done < /tmp/missing.txt
+          fi
+
+      - name: Verify all screenshots exist
+        run: |
+          node -e "
+          const fs = require('fs');
+          const sites = JSON.parse(fs.readFileSync('data/sites.json')).sites;
+          const dir = 'data/screenshots';
+          let ok = 0, missing = [];
+          sites.forEach(s => {
+            const f = s.url.replace(/[^a-z0-9.-]/gi, '_').replace(/\.{2,}/g, '.') + '.webp';
+            if (fs.existsSync(dir + '/' + f)) ok++;
+            else missing.push(s.url);
+          });
+          console.log('Screenshots: ' + ok + '/' + sites.length + ' OK');
+          if (missing.length) {
+            console.log('Missing (' + missing.length + '):');
+            missing.forEach(u => console.log('  -', u));
+          }
+          "
+
       - name: Commit if changed
         run: |
           set -euo pipefail
@@ -39,6 +97,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes since last run."
           else
-            git commit -m "chore(data): daily archive sync $(date -u +%Y-%m-%d)"
+            git commit -m "chore(data): daily archive sync + screenshots $(date -u +%Y-%m-%d)"
             git push
           fi

@@ -188,29 +188,42 @@
     .random-button:hover div span { transform: translateY(-100%); }
 
     /* ================================================================
-       Section labels (Top 5 New / Archive) — clone additions,
-       styled strictly with the original palette
+       Curation link — "More Curation →" with vaultnco.store favicon
        ================================================================ */
-    .section-label {
+    .curation-link {
       display: flex;
       align-items: center;
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-    .section-label h2 {
+      gap: 10px;
+      margin-bottom: 20px;
       font-family: var(--font-mono);
       font-size: var(--font-xsm);
-      font-weight: 400;
-      text-transform: uppercase;
-      letter-spacing: 0.25em;
-      color: var(--color-foreground-subtler);
-      white-space: nowrap;
+      color: var(--color-foreground-subtle);
+      text-decoration: none;
+      transition: 0.2s;
     }
-    .section-label::after {
-      content: "";
-      height: 1px;
-      width: 100%;
-      background: var(--color-neutral-200);
+    .curation-link:hover { color: var(--color-foreground); }
+    .curation-link:hover .arrow { transform: translateX(3px); }
+    .curation-link .arrow {
+      color: #4ade80;
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+    .curation-link .favicon-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      background: var(--color-neutral-900);
+      border: 1px solid var(--color-neutral-200);
+      border-radius: 8px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .curation-link .favicon-wrap img {
+      width: 18px;
+      height: 18px;
+      object-fit: contain;
     }
 
     /* ================================================================
@@ -222,7 +235,6 @@
       gap: 36px 32px;
     }
     .archive { padding-bottom: 40px; }
-    .topnew { margin-bottom: 64px; }
 
     .website { width: 100%; }
 
@@ -272,21 +284,6 @@
     .website .image:hover p { opacity: 1; }
     .website .image:hover p span { transform: scale(1); }
 
-    /* NEW badge — sits on the image corner */
-    .website .badge-new {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      padding: 3px 7px;
-      font-family: var(--font-mono);
-      font-size: var(--font-3xsm);
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: #6ee7a0;
-      background-color: #09090bd9;
-      border: 1px solid var(--color-neutral-300);
-    }
-
     /* Details row under the image (original: right-aligned mono link) */
     .website .details {
       display: flex;
@@ -304,11 +301,6 @@
       transition: 0.2s;
     }
     .website .details .link:hover { color: var(--color-foreground); }
-    .website .details .date {
-      font-family: var(--font-mono);
-      font-size: var(--font-3xsm);
-      color: var(--color-neutral-400);
-    }
 
     /* ================================================================
        Footer — original structure
@@ -401,25 +393,27 @@
       <h1>Minimum</h1>
       <p class="desc">Minimal websites directory.</p>
       <p class="tagline"><span class="shiny-text">Because less, is more.</span></p>
+
+      <!-- More Curation link with vaultnco.store favicon -->
+      <a class="curation-link" href="https://vaultnco.store" target="_blank" rel="noreferrer">
+        <span class="curation-link__text">More Curation</span>
+        <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"></path>
+          <path d="m12 5 7 7-7 7"></path>
+        </svg>
+        <span class="favicon-wrap">
+          <img src="data/screenshots/vaultnco-favicon.webp" alt="vaultnco.store" width="18" height="18">
+        </span>
+      </a>
+
       <p class="counter"><span id="counter">·····</span> websites collected.</p>
       <button class="random-button" id="random-btn" type="button">
         (<div><span>Random</span><span>Random</span></div>)
       </button>
     </section>
 
-    <!-- ============ TOP 5 NEW ============ -->
-    <section class="topnew" id="new-section" hidden aria-labelledby="new-label">
-      <div class="section-label">
-        <h2 id="new-label">Top 5 New</h2>
-      </div>
-      <div class="websites" id="new-grid"></div>
-    </section>
-
-    <!-- ============ ARCHIVE ============ -->
-    <section class="archive" id="archive-section" hidden aria-labelledby="archive-label">
-      <div class="section-label">
-        <h2 id="archive-label">Archive — <span id="archive-count">00000</span></h2>
-      </div>
+    <!-- ============ ARCHIVE GRID ============ -->
+    <section class="archive" id="archive-section" hidden>
       <div class="websites" id="grid"></div>
     </section>
 
@@ -541,7 +535,7 @@
 
       /* ---------------- rendering (original card anatomy) ---------------- */
 
-      function card(site, showDate) {
+      function card(site) {
         const wrap = document.createElement('div');
         wrap.className = 'website';
 
@@ -558,7 +552,6 @@
         img.src = screenshotSrc(site.url);
         img.addEventListener('error', function handler() {
           img.removeEventListener('error', handler);
-          // fallback to Microlink live screenshot
           img.src = `https://api.microlink.io/?url=https://${encodeURIComponent(site.url)}&screenshot=true&meta=false&embed=screenshot.url`;
         });
 
@@ -569,22 +562,8 @@
 
         imageLink.append(img, overlay);
 
-        if (site.isNew) {
-          const badge = document.createElement('span');
-          badge.className = 'badge-new';
-          badge.textContent = 'New';
-          imageLink.appendChild(badge);
-        }
-
         const details = document.createElement('div');
         details.className = 'details';
-
-        if (showDate && site.date) {
-          const date = document.createElement('span');
-          date.className = 'date';
-          date.textContent = site.date.toISOString().slice(0, 10);
-          details.appendChild(date);
-        }
 
         const link = document.createElement('a');
         link.className = 'link';
@@ -599,23 +578,13 @@
       }
 
       function render(sites) {
-        const sorted = [...sites].sort(
-          (a, b) => (b.date?.getTime() ?? -Infinity) - (a.date?.getTime() ?? -Infinity)
-        );
-        if (!sorted.length) throw new Error('The archive is empty.');
+        if (!sites.length) throw new Error('The archive is empty.');
 
-        const padded = String(sorted.length).padStart(5, '0');
+        const padded = String(sites.length).padStart(5, '0');
         $('counter').textContent = padded;
 
-        const top5 = sorted.slice(0, 5).filter((s) => s.date);
-        if (top5.length) {
-          $('new-section').hidden = false;
-          top5.forEach((s) => $('new-grid').appendChild(card(s, true)));
-        }
-
         $('archive-section').hidden = false;
-        $('archive-count').textContent = padded;
-        sorted.forEach((s) => $('grid').appendChild(card(s, false)));
+        sites.forEach((s) => $('grid').appendChild(card(s)));
 
         $('random-btn').addEventListener('click', () => {
           const cards = $('grid').children;
