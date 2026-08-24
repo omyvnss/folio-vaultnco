@@ -1,8 +1,8 @@
 {
-  "count": 55,
+  "count": 54,
   "total": 60,
-  "dead": 5,
-  "updated": "2026-08-23T21:23:09.387Z",
+  "dead": 6,
+  "updated": "2026-08-24T10:24:35.445Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -251,11 +251,6 @@
     },
     {
       "url": "faizanwar.com",
-      "date": "2026-08-21",
-      "status": "ok"
-    },
-    {
-      "url": "tino.works",
       "date": "2026-08-21",
       "status": "ok"
     },
