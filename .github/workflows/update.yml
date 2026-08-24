@@ -1,12 +1,13 @@
 name: update-archive
 
-# Runs daily at 17:00 Asia/Kolkata (11:30 UTC).
-# Pulls the latest links from Google Sheet, captures missing screenshots,
-# and auto-commits so the live site always ships with fresh data.
+# Runs every hour.
+# Pulls the latest links from Google Sheet, verifies they're live,
+# captures missing screenshots, and auto-commits so the live site
+# always shows fresh data — zero manual interference.
 
 on:
   schedule:
-    - cron: "30 11 * * *" # 17:00 IST daily
+    - cron: "0 * * * *" # every hour — picks up Gemini Spark additions within 60 min
   workflow_dispatch: {} # allow manual runs
 
 permissions:
