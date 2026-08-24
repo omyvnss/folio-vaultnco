@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * MNMM.CLONE — local backend + data sync
+ * Folio VaultnCo — local backend + data sync
  *
  * Usage:
  *   node server.js          # start http://localhost:3000
@@ -88,7 +88,7 @@ function safeFilename(url) {
 function downloadScreenshot(url, dest) {
   return new Promise((resolve, reject) => {
     if (fs.existsSync(dest)) return resolve('skip');
-    https.get(microlinkSrc(url), { headers: { 'User-Agent': 'mnmm-clone/1.0' } }, (res) => {
+    https.get(microlinkSrc(url), { headers: { 'User-Agent': 'folio-vaultnco/1.0' } }, (res) => {
       if ([301, 302, 307, 308].includes(res.statusCode) && res.headers.location) {
         res.resume();
         const loc = res.headers.location.startsWith('http')
@@ -136,7 +136,7 @@ async function cacheScreenshots(sites, concurrency = 6) {
 function fetchSheet() {
   return new Promise((resolve, reject) => {
     const follow = (url) => {
-      https.get(url, { headers: { 'User-Agent': 'mnmm-clone/1.0' } }, (res) => {
+      https.get(url, { headers: { 'User-Agent': 'folio-vaultnco/1.0' } }, (res) => {
         if ([301, 302, 307, 308].includes(res.statusCode) && res.headers.location) {
           res.resume();
           return follow(new URL(res.headers.location, url).href);
@@ -290,7 +290,7 @@ const server = http.createServer((req, res) => {
 
   server.listen(PORT, () => {
     const addr = server.address();
-    console.log(`\n  mnmm.clone is live:`);
+    console.log(`\n  folio.vaultnco.store is live:`);
     console.log(`    -> http://localhost:${PORT}`);
     console.log(`    -> http://127.0.0.1:${PORT}`);
     console.log(`  (${addr.family === 'IPv6' ? 'IPv6+IPv4 dual-stack' : addr.address}, ${siteCount} sites loaded)\n`);

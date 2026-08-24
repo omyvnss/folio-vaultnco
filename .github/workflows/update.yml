@@ -92,7 +92,7 @@ jobs:
       - name: Commit if changed
         run: |
           set -euo pipefail
-          git config user.name  "mnmm-bot"
+          git config user.name  "folio-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/
           if git diff --cached --quiet; then
