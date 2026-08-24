@@ -99,6 +99,11 @@
        Hero — exact structure & spacing from the original
        ================================================================ */
     .hero { padding: 120px 0 60px; text-align: left; }
+    .hero .logo-mark {
+      display: block;
+      margin: 0 auto 24px;
+      opacity: 0.5;
+    }
     .hero h1 {
       font-weight: 500;
       color: var(--color-foreground);
@@ -349,6 +354,12 @@
 
     <!-- ============ HERO (original layout) ============ -->
     <section class="hero" id="hero">
+      <!-- Minimal star logo mark -->
+      <svg class="logo-mark" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 4v24M4 16h24M7 7l18 18M25 7l-18 18"></path>
+        </g>
+      </svg>
       <h1>Folio VaultnCo</h1>
       <p class="desc">Curated minimal websites.</p>
       <p class="tagline"><span class="shiny-text">Because less, is more.</span></p>
