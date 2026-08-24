@@ -7,7 +7,7 @@ name: update-archive
 
 on:
   schedule:
-    - cron: "0 * * * *" # every hour — picks up Gemini Spark additions within 60 min
+    - cron: "0 0,8,16 * * *" # 3x daily (5:30 AM, 1:30 PM, 9:30 PM IST)
   workflow_dispatch: {} # allow manual runs
 
 permissions:
