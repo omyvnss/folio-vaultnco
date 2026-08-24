@@ -201,8 +201,10 @@ async function verifySites(sites, concurrency = 10) {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Sync: pull sheet -> verify -> write JSON + CSV + history            */
+/*  Sync: pull sheet -> drip-feed 3 new verified sites per run          */
 /* ------------------------------------------------------------------ */
+
+const BATCH_SIZE = parseInt(process.env.BATCH_SIZE || '3', 10);
 
 async function sync() {
   let raw = '';
@@ -214,18 +216,50 @@ async function sync() {
   if (/^\s*<(?:!doctype|html)/i.test(raw)) throw new Error('Got HTML instead of CSV (sheet not public?)');
   if (!raw.trim()) throw new Error('Empty response from Google');
 
-  const allSites = csvToSites(raw);
-  console.log(`Found ${allSites.length} sites in sheet. Verifying...`);
+  const sheetSites = csvToSites(raw);
+  fs.mkdirSync(DATA_DIR, { recursive: true });
 
-  // verify each site is actually live
-  const { live, dead } = await verifySites(allSites);
-  console.log(`Verification: ${live} live, ${dead} dead/unpublished.`);
+  // load already-published list — these are NEVER re-verified or re-added
+  let existing = [];
+  if (fs.existsSync(SITE_JSON)) {
+    try { existing = JSON.parse(fs.readFileSync(SITE_JSON, 'utf8')).sites || []; }
+    catch (_) { existing = []; }
+  }
+  const existingUrls = new Set(existing.map((s) => s.url));
 
-  const sites = allSites.filter((s) => s.status === 'ok');
+  // fresh candidates = in sheet but never published before
+  const queue = sheetSites.filter((s) => !existingUrls.has(s.url));
+  console.log(`Sheet has ${sheetSites.length} rows | published: ${existing.length} | new candidates: ${queue.length}`);
+
+  let batch;
+  if (!fs.existsSync(SITE_JSON) && existing.length === 0) {
+    // first run ever: seed the whole archive at once
+    console.log('First run — seeding entire archive...');
+    await verifySites(sheetSites);
+    batch = sheetSites.filter((s) => s.status === 'ok');
+  } else {
+    // drip-feed: verify only the next few candidates until BATCH_SIZE go live
+    batch = [];
+    while (batch.length < BATCH_SIZE && queue.length > 0) {
+      const candidate = queue.shift();
+      const verdict = await checkUrl(candidate.url);
+      candidate.status = verdict;
+      if (verdict === 'ok') {
+        batch.push(candidate);
+        console.log(`  ✓ ${candidate.url}`);
+      } else {
+        console.log(`  ✗ ${candidate.url} (${verdict}) — skipped permanently`);
+      }
+    }
+    console.log(`Batch: ${batch.length} new site(s) added this run.`);
+  }
+
+  // merged list: old sites untouched + new additions appended
+  const sites = [...existing, ...batch];
   fs.mkdirSync(DATA_DIR, { recursive: true });
 
   const payload = JSON.stringify(
-    { count: sites.length, total: allSites.length, dead, updated: new Date().toISOString(), sites },
+    { count: sites.length, total: sheetSites.length, updated: new Date().toISOString(), sites },
     null,
     2
   );
@@ -237,12 +271,14 @@ async function sync() {
   fs.mkdirSync(historyDir, { recursive: true });
   fs.copyFileSync(SITE_CSV, path.join(historyDir, `${new Date().toISOString().slice(0, 10)}.csv`));
 
-  // pre-cache screenshots only for live sites
-  console.log('Caching screenshots...');
-  const { cached, skipped } = await cacheScreenshots(sites);
-  console.log(`Screenshots: ${cached} downloaded, ${skipped} skipped/cached.`);
+  // screenshots only for newly added sites (existing previews never touched)
+  if (batch.length > 0) {
+    console.log('Caching screenshots for new sites...');
+    const { cached, skipped } = await cacheScreenshots(batch);
+    console.log(`Screenshots: ${cached} downloaded, ${skipped} skipped/cached.`);
+  }
 
-  console.log(`Synced ${sites.length} live sites (filtered from ${allSites.length}).`);
+  console.log(`Done. Archive now holds ${sites.length} sites.`);
   return sites;
 }
 

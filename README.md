@@ -11,9 +11,9 @@ Pitch-black, monospace, zero build step. Every site verified live before it appe
   - Falls back to the backend API → committed JSON → CSV if needed.
 - **`server.js`** — zero-dependency Node backend + sync engine.
   - `node server.js` — serves the site at `localhost:3000`
-  - `node server.js sync` — pulls the source sheet, health-checks every URL
-    (8s timeout, follows redirects), filters out dead/unpublished sites,
-    captures missing screenshots with headless Chrome, writes snapshots.
+  - `node server.js sync` — pulls the source sheet and drip-feeds up to 3 new
+    URLs per run (live-checked, never duplicated); dead/unpublished links
+    are skipped permanently. Screenshots via headless Chrome.
 - **`.github/workflows/update.yml`** — runs **3× per day** on GitHub's servers.
   Same sync flow, then auto-commits fresh data so the live site stays current.
   No secrets, no external services.
