@@ -41,6 +41,8 @@
       --font-neg-ratio: 1.125;
       --font-base: var(--font-base-size);
       --font-md:   calc(var(--font-base) * var(--font-pos-ratio));
+      --font-lg:   calc(var(--font-md) * var(--font-pos-ratio));
+      --font-xl:   calc(var(--font-lg) * var(--font-pos-ratio));
       --font-sm:   calc(var(--font-base) / var(--font-neg-ratio));
       --font-xsm:  calc(var(--font-sm) / var(--font-neg-ratio));
       --font-2xsm: calc(var(--font-xsm) / var(--font-neg-ratio));
@@ -106,6 +108,8 @@
       gap: 6px;
       font-weight: 500;
       color: var(--color-foreground);
+      font-size: var(--font-xl);
+      line-height: 1.1;
       margin-top: 0;
     }
     .hero .brand-name .logo-mark {
@@ -118,18 +122,18 @@
       line-height: 1.1;
     }
     .hero .brand-subtitle {
-      margin-top: 10px;
-      font-size: var(--font-md);
+      margin-top: 12px;
+      font-size: var(--font-lg);
       color: var(--color-foreground-subtle);
       font-weight: 400;
     }
     .hero .brand-motto {
-      margin-top: 6px;
-      font-size: var(--font-sm);
+      margin-top: 8px;
+      font-size: var(--font-md);
       color: var(--color-foreground-subtler);
     }
     .hero .counter {
-      margin-top: 20px;
+      margin-top: 24px;
       font-size: var(--font-sm);
       color: var(--color-foreground-subtler);
     }
