@@ -1,54 +1,53 @@
-# MNMM.CLONE
+# Folio VaultnCo
 
-A single-file clone of [mnmm.xyz](https://mnmm.xyz) — a minimal websites directory.
-Pitch-black, monospace, zero build step.
+A minimal websites directory — **folio.vaultnco.store**.
+Pitch-black, monospace, zero build step. Every site verified live before it appears.
 
 ## How it works
 
-- **`index.html`** — the entire app. Tailwind (CDN) + vanilla JS.
-  - Fetches the archive live from the Google Sheet CSV on every visit.
-  - Falls back to `data/sites.csv` (last committed snapshot) if the sheet is unreachable.
-  - Shows a clean monospace error if both fail.
-  - Screenshots via Microlink: `https://api.microlink.io/?url=https://{URL}&screenshot=true&meta=false&embed=screenshot.url`
-  - Grayscale → full color on hover. `NEW` badge on sites added in the last 7 days (from the sheet's `Date Added` column). "Top 5 New" section above the full archive.
-- **`.github/workflows/update.yml`** — daily cron at **17:00 IST**. Downloads the CSV, and if it changed, commits it to `data/sites.csv` plus a dated copy in `data/history/YYYY-MM-DD.csv`.
-
-The live site always shows fresh data (client-side fetch); the cron gives you
-versioned history and an offline fallback — it does not need to run for the site to work.
+- **`index.html`** — the entire frontend. Vanilla JS + exact design tokens.
+  - Loads `data/sites.json` (pre-verified snapshot) for instant rendering.
+  - Serves screenshots locally from `data/screenshots/*.webp` — millisecond loads.
+  - Falls back to the backend API → committed JSON → CSV if needed.
+- **`server.js`** — zero-dependency Node backend + sync engine.
+  - `node server.js` — serves the site at `localhost:3000`
+  - `node server.js sync` — pulls the source sheet, health-checks every URL
+    (8s timeout, follows redirects), filters out dead/unpublished sites,
+    captures missing screenshots with headless Chrome, writes snapshots.
+- **`.github/workflows/update.yml`** — runs **3× per day** on GitHub's servers.
+  Same sync flow, then auto-commits fresh data so the live site stays current.
+  No secrets, no external services.
 
 ## Run locally
 
-No build step. Open `index.html`, or serve it:
-
 ```bash
-python3 -m http.server 8000
-# → http://localhost:8000
+git clone https://github.com/omyvnss/folio-vaultnco.git
+cd folio-vaultnco
+node server.js          # → http://localhost:3000
 ```
-
-## Import to GitHub
-
-```bash
-git init                       # already done in this folder
-git add .
-git commit -m "feat: mnmm.clone — minimal sites directory"
-gh repo create mnmm-clone --public --source=. --push
-```
-
-Or create an empty repo on github.com and push manually. VS Code is only your
-editor here — the cron runs on GitHub's servers (repo → Actions tab).
-
-## Update the directory
-
-Edit the Google Sheet (`Website URL`, `Date Added`). Changes appear on the site
-immediately for new visitors; the cron snapshots them daily at 17:00 IST.
-Manual sync anytime: repo → **Actions** → *update-archive* → **Run workflow**.
 
 ## Structure
 
 ```
-├── index.html                     # the app
+├── index.html                  # the app (single file)
+├── server.js                   # backend + sync engine
+├── cache-screenshots.js        # batch screenshot capture (Chrome headless)
+├── CNAME                       # folio.vaultnco.store
 ├── data/
-│   ├── sites.csv                  # latest snapshot (cron-maintained)
-│   └── history/                   # dated snapshots YYYY-MM-DD.csv
-└── .github/workflows/update.yml   # daily cron @ 17:00 IST
+│   ├── sites.json              # live-verified site list (auto-updated)
+│   ├── sites.csv               # CSV mirror of sites.json
+│   ├── history/                # dated snapshots per sync day
+│   └── screenshots/            # cached WebP previews (1280×800)
+└── .github/workflows/
+    └── update.yml              # 3× daily auto-sync
 ```
+
+## Update the directory
+
+Add or remove URLs at the source. Verified changes appear on the site within a
+few hours automatically. Manual sync anytime:
+repo → **Actions** → *update-archive* → **Run workflow**.
+
+---
+
+Curated by [Om Yaduvanshi](https://github.com/omyvnss).
