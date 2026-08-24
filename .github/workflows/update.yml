@@ -7,7 +7,7 @@ name: update-archive
 
 on:
   schedule:
-    - cron: "30 11 */5 * *" # every 5 days at 17:00 IST
+    - cron: "15 18 */5 * *" # every 5 days at 11:45 PM IST
   workflow_dispatch: {} # allow manual runs
 
 permissions:
