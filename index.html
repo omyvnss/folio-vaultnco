@@ -101,19 +101,23 @@
     .hero { padding: 120px 0 60px; text-align: left; }
     .hero .logo-mark {
       display: block;
-      margin: 0 auto 24px;
+      margin: 0 auto 20px;
       opacity: 0.5;
     }
-    .hero h1 {
+    .hero .brand-name {
       font-weight: 500;
       color: var(--color-foreground);
+      margin-top: 0;
     }
-    .hero .desc {
-      margin-top: 12px;
+    .hero .brand-subtitle {
+      margin-top: 10px;
+      font-size: var(--font-md);
       color: var(--color-foreground-subtle);
+      font-weight: 400;
     }
-    .hero .tagline {
-      margin-top: 2px;
+    .hero .brand-motto {
+      margin-top: 6px;
+      font-size: var(--font-sm);
       color: var(--color-foreground-subtler);
     }
     .hero .counter {
@@ -360,9 +364,9 @@
           <path d="M16 4v24M4 16h24M7 7l18 18M25 7l-18 18"></path>
         </g>
       </svg>
-      <h1>Folio VaultnCo</h1>
-      <p class="desc">Curated minimal websites.</p>
-      <p class="tagline"><span class="shiny-text">Because less, is more.</span></p>
+      <h1 class="brand-name">Folio VaultnCo</h1>
+      <p class="brand-subtitle">Curated minimal websites</p>
+      <p class="brand-motto"><span class="shiny-text">Because less, is more.</span></p>
 
       <!-- More Curation link with vaultnco.store favicon -->
       <a class="curation-link" href="https://vaultnco.store" target="_blank" rel="noreferrer">
