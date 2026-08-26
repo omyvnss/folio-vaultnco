@@ -1,8 +1,7 @@
 {
-  "count": 54,
-  "total": 60,
-  "dead": 6,
-  "updated": "2026-08-24T11:15:43.484Z",
+  "count": 57,
+  "total": 161,
+  "updated": "2026-08-26T20:05:48.898Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -272,6 +271,21 @@
     {
       "url": "margins.app",
       "date": "2026-08-21",
+      "status": "ok"
+    },
+    {
+      "url": "sanyam.sh",
+      "date": "2026-08-24",
+      "status": "ok"
+    },
+    {
+      "url": "xchyler.works",
+      "date": "2026-08-24",
+      "status": "ok"
+    },
+    {
+      "url": "flohoeller.com",
+      "date": "2026-08-24",
       "status": "ok"
     }
   ]
