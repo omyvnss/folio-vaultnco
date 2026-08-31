@@ -1,7 +1,7 @@
 {
-  "count": 57,
+  "count": 60,
   "total": 161,
-  "updated": "2026-08-26T20:05:48.898Z",
+  "updated": "2026-08-31T22:53:22.458Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -285,6 +285,21 @@
     },
     {
       "url": "flohoeller.com",
+      "date": "2026-08-24",
+      "status": "ok"
+    },
+    {
+      "url": "eduardwieandt.com",
+      "date": "2026-08-24",
+      "status": "ok"
+    },
+    {
+      "url": "aniket.fyi",
+      "date": "2026-08-24",
+      "status": "ok"
+    },
+    {
+      "url": "benja.dev",
       "date": "2026-08-24",
       "status": "ok"
     }
