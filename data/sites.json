@@ -1,7 +1,7 @@
 {
-  "count": 60,
+  "count": 63,
   "total": 161,
-  "updated": "2026-08-31T22:53:22.458Z",
+  "updated": "2026-09-01T21:04:36.741Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -300,6 +300,21 @@
     },
     {
       "url": "benja.dev",
+      "date": "2026-08-24",
+      "status": "ok"
+    },
+    {
+      "url": "lorenzodelijser.com",
+      "date": "2026-08-24",
+      "status": "ok"
+    },
+    {
+      "url": "nickdilallo.com",
+      "date": "2026-08-24",
+      "status": "ok"
+    },
+    {
+      "url": "rauchg.com",
       "date": "2026-08-24",
       "status": "ok"
     }
