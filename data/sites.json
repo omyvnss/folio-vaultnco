@@ -1,7 +1,7 @@
 {
-  "count": 63,
+  "count": 66,
   "total": 161,
-  "updated": "2026-09-01T21:04:36.741Z",
+  "updated": "2026-09-06T20:27:17.827Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -315,6 +315,21 @@
     },
     {
       "url": "rauchg.com",
+      "date": "2026-08-24",
+      "status": "ok"
+    },
+    {
+      "url": "evilrabbit.com",
+      "date": "2026-08-24",
+      "status": "ok"
+    },
+    {
+      "url": "jasonyuan.design",
+      "date": "2026-08-24",
+      "status": "ok"
+    },
+    {
+      "url": "atillataskiran.com",
       "date": "2026-08-24",
       "status": "ok"
     }
