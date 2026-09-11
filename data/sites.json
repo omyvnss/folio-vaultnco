@@ -1,7 +1,7 @@
 {
-  "count": 66,
+  "count": 69,
   "total": 161,
-  "updated": "2026-09-06T20:27:17.827Z",
+  "updated": "2026-09-11T21:00:05.170Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -330,6 +330,21 @@
     },
     {
       "url": "atillataskiran.com",
+      "date": "2026-08-24",
+      "status": "ok"
+    },
+    {
+      "url": "kundo.studio",
+      "date": "2026-08-24",
+      "status": "ok"
+    },
+    {
+      "url": "paolonessim.com",
+      "date": "2026-08-24",
+      "status": "ok"
+    },
+    {
+      "url": "pixelwrld.co",
       "date": "2026-08-24",
       "status": "ok"
     }
