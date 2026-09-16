@@ -1,7 +1,7 @@
 {
-  "count": 69,
+  "count": 72,
   "total": 161,
-  "updated": "2026-09-11T21:00:05.170Z",
+  "updated": "2026-09-16T21:21:08.210Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -345,6 +345,21 @@
     },
     {
       "url": "pixelwrld.co",
+      "date": "2026-08-24",
+      "status": "ok"
+    },
+    {
+      "url": "jasur.io",
+      "date": "2026-08-24",
+      "status": "ok"
+    },
+    {
+      "url": "lucchaissac.com",
+      "date": "2026-08-24",
+      "status": "ok"
+    },
+    {
+      "url": "max.dev",
       "date": "2026-08-24",
       "status": "ok"
     }
