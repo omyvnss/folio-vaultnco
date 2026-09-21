@@ -1,7 +1,7 @@
 {
-  "count": 72,
+  "count": 75,
   "total": 161,
-  "updated": "2026-09-16T21:21:08.210Z",
+  "updated": "2026-09-21T22:00:26.278Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -360,6 +360,21 @@
     },
     {
       "url": "max.dev",
+      "date": "2026-08-24",
+      "status": "ok"
+    },
+    {
+      "url": "roko-g.work",
+      "date": "2026-08-24",
+      "status": "ok"
+    },
+    {
+      "url": "laurendorman.io",
+      "date": "2026-08-24",
+      "status": "ok"
+    },
+    {
+      "url": "shawnfarsai.com",
       "date": "2026-08-24",
       "status": "ok"
     }
