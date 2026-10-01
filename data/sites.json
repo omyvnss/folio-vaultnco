@@ -1,7 +1,7 @@
 {
-  "count": 78,
+  "count": 81,
   "total": 161,
-  "updated": "2026-09-26T21:13:43.124Z",
+  "updated": "2026-10-01T22:43:44.062Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -390,6 +390,21 @@
     },
     {
       "url": "alxmurashko.com",
+      "date": "2026-08-24",
+      "status": "ok"
+    },
+    {
+      "url": "viliandve.com",
+      "date": "2026-08-24",
+      "status": "ok"
+    },
+    {
+      "url": "twilson.net",
+      "date": "2026-08-24",
+      "status": "ok"
+    },
+    {
+      "url": "marcusfarrell.com",
       "date": "2026-08-24",
       "status": "ok"
     }
