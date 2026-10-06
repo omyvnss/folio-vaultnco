@@ -1,7 +1,7 @@
 {
-  "count": 81,
+  "count": 84,
   "total": 161,
-  "updated": "2026-10-01T22:43:44.062Z",
+  "updated": "2026-10-06T22:40:26.351Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -405,6 +405,21 @@
     },
     {
       "url": "marcusfarrell.com",
+      "date": "2026-08-24",
+      "status": "ok"
+    },
+    {
+      "url": "udara.io",
+      "date": "2026-08-24",
+      "status": "ok"
+    },
+    {
+      "url": "bridger.to",
+      "date": "2026-08-24",
+      "status": "ok"
+    },
+    {
+      "url": "prosper.org",
       "date": "2026-08-24",
       "status": "ok"
     }
