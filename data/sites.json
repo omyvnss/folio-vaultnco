@@ -1,7 +1,7 @@
 {
-  "count": 84,
+  "count": 87,
   "total": 161,
-  "updated": "2026-10-06T22:40:26.351Z",
+  "updated": "2026-10-11T22:01:38.717Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -420,6 +420,21 @@
     },
     {
       "url": "prosper.org",
+      "date": "2026-08-24",
+      "status": "ok"
+    },
+    {
+      "url": "borys.is",
+      "date": "2026-08-24",
+      "status": "ok"
+    },
+    {
+      "url": "jetset.nl",
+      "date": "2026-08-24",
+      "status": "ok"
+    },
+    {
+      "url": "kyler.design",
       "date": "2026-08-24",
       "status": "ok"
     }
