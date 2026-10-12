@@ -12,11 +12,14 @@ Pitch-black, monospace, zero build step. Every site verified live before it appe
 - **`server.js`** — zero-dependency Node backend + sync engine.
   - `node server.js` — serves the site at `localhost:3000`
   - `node server.js sync` — pulls the source sheet and drip-feeds up to 3 new
-    URLs per run (live-checked, never duplicated); dead/unpublished links
-    are skipped permanently. Screenshots via headless Chrome.
-- **`.github/workflows/update.yml`** — runs **3× per day** on GitHub's servers.
-  Same sync flow, then auto-commits fresh data so the live site stays current.
+    URLs per run (live-checked, never duplicated); dead links are skipped and
+    retried on the next run. Each new site records its `added` date.
+- **`cache-screenshots.js`** — captures missing/blank previews with headless
+  Chrome and normalises every preview to a real 1280×800 WebP (needs `cwebp`).
+- **`.github/workflows/update.yml`** — runs **once a day** on GitHub's servers.
+  Sync → screenshots → auto-commit, so the live site stays current.
   No secrets, no external services.
+- **`og.png`, `favicon.svg`, `apple-touch-icon.png`** — link-preview + icons.
 
 ## Run locally
 
@@ -31,7 +34,8 @@ node server.js          # → http://localhost:3000
 ```
 ├── index.html                  # the app (single file)
 ├── server.js                   # backend + sync engine
-├── cache-screenshots.js        # batch screenshot capture (Chrome headless)
+├── cache-screenshots.js        # screenshot capture + WebP normalisation
+├── og.png                      # 1200×630 social preview
 ├── CNAME                       # folio.vaultnco.store
 ├── data/
 │   ├── sites.json              # live-verified site list (auto-updated)
@@ -39,13 +43,13 @@ node server.js          # → http://localhost:3000
 │   ├── history/                # dated snapshots per sync day
 │   └── screenshots/            # cached WebP previews (1280×800)
 └── .github/workflows/
-    └── update.yml              # 3× daily auto-sync
+    └── update.yml              # daily auto-sync
 ```
 
 ## Update the directory
 
 Add or remove URLs at the source. Verified changes appear on the site within a
-few hours automatically. Manual sync anytime:
+day automatically (3 new sites per run). Manual sync anytime:
 repo → **Actions** → *update-archive* → **Run workflow**.
 
 ---

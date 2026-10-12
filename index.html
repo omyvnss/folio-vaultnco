@@ -3,9 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Folio VaultnCo</title>
-  <meta name="description" content="A carefully curated collection of minimal websites.">
-  <meta name="theme-color" content="#18181b">
+  <title>Folio VaultnCo — Curated minimal websites</title>
+  <meta name="description" content="A hand-picked archive of minimal personal websites, verified live and updated daily. Because less, is more.">
+  <meta name="theme-color" content="#09090b">
+  <link rel="canonical" href="https://folio.vaultnco.store/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Folio VaultnCo">
+  <meta property="og:title" content="Folio VaultnCo — Curated minimal websites">
+  <meta property="og:description" content="A hand-picked archive of minimal personal websites, verified live and updated daily.">
+  <meta property="og:url" content="https://folio.vaultnco.store/">
+  <meta property="og:image" content="https://folio.vaultnco.store/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Folio VaultnCo — Curated minimal websites">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Folio VaultnCo — Curated minimal websites">
+  <meta name="twitter:description" content="A hand-picked archive of minimal personal websites, verified live and updated daily.">
+  <meta name="twitter:image" content="https://folio.vaultnco.store/og.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -185,7 +202,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 20px;
+      margin: 20px 0;
       font-family: var(--font-mono);
       font-size: var(--font-xsm);
       color: var(--color-foreground-subtle);
@@ -225,7 +242,7 @@
        ================================================================ */
     .websites {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
       gap: 36px 32px;
     }
     .archive { padding-bottom: 40px; }
@@ -239,8 +256,9 @@
     .website .image img {
       display: block;
       width: 100%;
-      aspect-ratio: 1 / 1;
+      aspect-ratio: 16 / 10;
       object-fit: cover;
+      object-position: top;
       background-color: var(--color-neutral-100);
       border: 1px solid var(--color-neutral-200);
     }
@@ -295,6 +313,16 @@
       transition: 0.2s;
     }
     .website .details .link:hover { color: var(--color-foreground); }
+    .website .details .new {
+      margin-right: auto;
+      font-family: var(--font-mono);
+      font-size: var(--font-2xsm);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-foreground-subtle);
+      border: 1px solid var(--color-neutral-300);
+      padding: 1px 6px;
+    }
 
     /* ================================================================
        Footer — original structure
@@ -409,6 +437,7 @@
   <!-- ============ FOOTER (original structure) ============ -->
   <footer class="footer">
     <div class="container">
+      <time class="meta" id="updated"></time>
       <p class="curator">Curated by <a href="https://github.com/omyvnss" target="_blank" rel="noreferrer">Om Yaduvanshi</a>.</p>
     </div>
   </footer>
@@ -430,9 +459,10 @@
       const DATA_JSON = 'data/sites.json'; // committed by the daily cron (static hosts)
       const SHEET_CSV = 'https://docs.google.com/spreadsheets/d/1XALmHbWxrLTg1hVp4tSzk_3p3vpWoDGXVjwgmSsjjcA/export?format=csv';
       const LOCAL_CSV = 'data/sites.csv';
-      const NEW_WINDOW_DAYS = 7;
+      const NEW_WINDOW_DAYS = 3;
 
       const $ = (id) => document.getElementById(id);
+      let updatedAt = null;
 
       const normalizeURL = (raw) =>
         String(raw ?? '').trim().replace(/^https?:\/\//i, '').replace(/\/+$/, '');
@@ -481,7 +511,7 @@
 
       function toSites(list) {
         return list
-          .map((s) => ({ url: normalizeURL(s?.url ?? s), date: parseDate(s?.date) }))
+          .map((s) => ({ url: normalizeURL(s?.url ?? s), date: parseDate(s?.added || s?.date) }))
           .filter((s) => /^[a-z0-9-]+(\.[a-z0-9-]+)+/i.test(s.url))
           .map((s) => ({
             ...s,
@@ -491,16 +521,14 @@
 
       async function loadSites() {
         // 1) backend API (server.js)  2) committed snapshot  3) live sheet  4) raw csv
-        try {
-          const json = JSON.parse(await fetchText(API_SITES));
-          const sites = toSites(json.sites || []);
-          if (sites.length) return sites;
-        } catch (_) {}
-        try {
-          const json = JSON.parse(await fetchText(DATA_JSON));
-          const sites = toSites(json.sites || []);
-          if (sites.length) return sites;
-        } catch (_) {}
+        // Snapshots are append-only, so reversing puts the newest additions first.
+        for (const src of [API_SITES, DATA_JSON]) {
+          try {
+            const json = JSON.parse(await fetchText(src));
+            const sites = toSites(json.sites || []).reverse();
+            if (sites.length) { updatedAt = json.updated || null; return sites; }
+          } catch (_) {}
+        }
         try {
           const rows = parseCSV(await fetchText(SHEET_CSV)).slice(1);
           const sites = toSites(rows.map(([u, d]) => ({ url: u, date: d })));
@@ -551,6 +579,13 @@
         const details = document.createElement('div');
         details.className = 'details';
 
+        if (site.isNew) {
+          const badge = document.createElement('span');
+          badge.className = 'new';
+          badge.textContent = 'New';
+          details.appendChild(badge);
+        }
+
         const link = document.createElement('a');
         link.className = 'link';
         link.href = `https://${site.url}`;
@@ -568,6 +603,13 @@
 
         const padded = String(sites.length).padStart(5, '0');
         $('counter').textContent = padded;
+        if (updatedAt) {
+          const d = new Date(updatedAt);
+          if (!isNaN(d)) {
+            $('updated').dateTime = d.toISOString();
+            $('updated').textContent = 'Updated ' + d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+          }
+        }
 
         $('archive-section').hidden = false;
         sites.forEach((s) => $('grid').appendChild(card(s)));

@@ -24,7 +24,7 @@ const SHEET_CSV =
 const SCREENSHOT_DIR = path.join(DATA_DIR, 'screenshots');
 
 const microlinkSrc = (url) =>
-  `https://api.microlink.io/?url=https://${encodeURIComponent(url)}&screenshot=true&meta=false&embed=screenshot.url`;
+  `https://api.microlink.io/?url=https://${encodeURIComponent(url)}&screenshot=true&meta=false&waitForTimeout=4000&embed=screenshot.url`;
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
@@ -86,28 +86,29 @@ function safeFilename(url) {
 }
 
 function downloadScreenshot(url, dest) {
-  return new Promise((resolve, reject) => {
-    if (fs.existsSync(dest)) return resolve('skip');
-    https.get(microlinkSrc(url), { headers: { 'User-Agent': 'folio-vaultnco/1.0' } }, (res) => {
-      if ([301, 302, 307, 308].includes(res.statusCode) && res.headers.location) {
-        res.resume();
-        const loc = res.headers.location.startsWith('http')
-          ? res.headers.location
-          : new URL(res.headers.location, microlinkSrc(url)).href;
-        return downloadScreenshot(url, dest).then(resolve, reject);
-      }
-      if (res.statusCode !== 200) { res.resume(); return resolve('skip'); }
-      const chunks = [];
-      res.on('data', (c) => chunks.push(c));
-      res.on('end', () => {
-        const buf = Buffer.concat(chunks);
-        // microlink sometimes returns JSON error instead of image
-        if (buf[0] === 0x7b || buf[0] === 0x3c) return resolve('skip');
-        fs.writeFileSync(dest, buf);
-        resolve('ok');
-      });
-      res.on('error', () => resolve('skip'));
-    }).on('error', () => resolve('skip'));
+  if (fs.existsSync(dest)) return Promise.resolve('skip');
+  return new Promise((resolve) => {
+    const follow = (target, redirects = 0) => {
+      if (redirects > 5) return resolve('skip');
+      https.get(target, { headers: { 'User-Agent': 'folio-vaultnco/1.0' } }, (res) => {
+        if ([301, 302, 303, 307, 308].includes(res.statusCode) && res.headers.location) {
+          res.resume();
+          return follow(new URL(res.headers.location, target).href, redirects + 1);
+        }
+        if (res.statusCode !== 200) { res.resume(); return resolve('skip'); }
+        const chunks = [];
+        res.on('data', (c) => chunks.push(c));
+        res.on('end', () => {
+          const buf = Buffer.concat(chunks);
+          // microlink sometimes returns JSON error instead of image
+          if (buf[0] === 0x7b || buf[0] === 0x3c) return resolve('skip');
+          fs.writeFileSync(dest, buf);
+          resolve('ok');
+        });
+        res.on('error', () => resolve('skip'));
+      }).on('error', () => resolve('skip'));
+    };
+    follow(microlinkSrc(url));
   });
 }
 
@@ -219,7 +220,7 @@ async function sync() {
   const sheetSites = csvToSites(raw);
   fs.mkdirSync(DATA_DIR, { recursive: true });
 
-  // load already-published list — these are NEVER re-verified or re-added
+  // load already-published list — these are never re-verified or re-added
   let existing = [];
   if (fs.existsSync(SITE_JSON)) {
     try { existing = JSON.parse(fs.readFileSync(SITE_JSON, 'utf8')).sites || []; }
@@ -245,10 +246,11 @@ async function sync() {
       const verdict = await checkUrl(candidate.url);
       candidate.status = verdict;
       if (verdict === 'ok') {
+        candidate.added = new Date().toISOString().slice(0, 10);
         batch.push(candidate);
         console.log(`  ✓ ${candidate.url}`);
       } else {
-        console.log(`  ✗ ${candidate.url} (${verdict}) — skipped permanently`);
+        console.log(`  ✗ ${candidate.url} (${verdict}) — skipped, retried next run`);
       }
     }
     console.log(`Batch: ${batch.length} new site(s) added this run.`);
@@ -264,7 +266,7 @@ async function sync() {
     2
   );
   fs.writeFileSync(SITE_JSON, payload);
-  fs.writeFileSync(SITE_CSV, 'Website URL,Date Added\n' + sites.map((s) => `${s.url},${s.date || ''}`).join('\n'));
+  fs.writeFileSync(SITE_CSV, 'Website URL,Date Added,Published\n' + sites.map((s) => `${s.url},${s.date || ''},${s.added || ''}`).join('\n'));
 
   // dated archive snapshot
   const historyDir = path.join(DATA_DIR, 'history');
