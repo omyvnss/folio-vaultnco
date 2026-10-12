@@ -257,6 +257,7 @@
     .website .image img {
       display: block;
       width: 100%;
+      height: auto;
       aspect-ratio: 16 / 10;
       object-fit: cover;
       object-position: top;
@@ -434,7 +435,7 @@
   </main>
 
   <!-- ============ FOOTER (original structure) ============ -->
-  <footer class="footer">
+  <footer class="footer" id="footer" hidden>
     <div class="container">
       <time class="meta" id="updated"></time>
       <p class="curator">Curated by <a href="https://github.com/omyvnss" target="_blank" rel="noreferrer">Om Yaduvanshi</a>.</p>
@@ -548,7 +549,7 @@
 
       /* ---------------- rendering (original card anatomy) ---------------- */
 
-      function card(site) {
+      function card(site, index) {
         const wrap = document.createElement('div');
         wrap.className = 'website';
 
@@ -560,7 +561,11 @@
 
         const img = document.createElement('img');
         img.alt = `Screenshot of ${site.url}`;
-        img.loading = 'lazy';
+        // first row is above the fold: load it immediately, lazy-load the rest
+        img.loading = index < 4 ? 'eager' : 'lazy';
+        if (index < 2) img.fetchPriority = 'high';
+        img.width = 1280;
+        img.height = 800;
         img.decoding = 'async';
         img.src = screenshotSrc(site.url);
         img.addEventListener('error', function handler() {
@@ -611,7 +616,8 @@
         }
 
         $('archive-section').hidden = false;
-        sites.forEach((s) => $('grid').appendChild(card(s)));
+        $('footer').hidden = false;
+        sites.forEach((s, i) => $('grid').appendChild(card(s, i)));
 
         $('random-btn').addEventListener('click', () => {
           const cards = $('grid').children;
