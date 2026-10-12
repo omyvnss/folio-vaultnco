@@ -1,0 +1,47 @@
+{
+  "offscript.cc": {
+    "step": "live",
+    "reason": "dead (EPROTO)",
+    "at": "2026-10-12T19:48:08.880Z"
+  },
+  "prompt-files.com": {
+    "step": "live",
+    "reason": "dead (ENOTFOUND)",
+    "at": "2026-10-12T19:48:08.891Z"
+  },
+  "minnix.cv": {
+    "step": "live",
+    "reason": "dead (ENOTFOUND)",
+    "at": "2026-10-12T19:48:08.903Z"
+  },
+  "moodie.blog": {
+    "step": "live",
+    "reason": "dead (ENOTFOUND)",
+    "at": "2026-10-12T19:48:08.947Z"
+  },
+  "tino.works": {
+    "step": "live",
+    "reason": "HTTP 403",
+    "at": "2026-10-12T19:48:09.279Z"
+  },
+  "535.studio": {
+    "step": "live",
+    "reason": "Client network socket disconnected before secure TLS connection was established",
+    "at": "2026-10-12T19:48:10.273Z"
+  },
+  "serhii.be": {
+    "step": "live",
+    "reason": "dead (ENOTFOUND)",
+    "at": "2026-10-12T19:48:10.379Z"
+  },
+  "zaidmukaddam.com": {
+    "step": "live",
+    "reason": "HTTP 429",
+    "at": "2026-10-12T19:48:10.444Z"
+  },
+  "giteshsarvaiya.co": {
+    "step": "live",
+    "reason": "dead (ENOTFOUND)",
+    "at": "2026-10-12T19:48:54.726Z"
+  }
+}

@@ -1,0 +1,255 @@
+[
+  {
+    "at": "2026-10-12T19:48:54.726Z",
+    "ai": true,
+    "published": [],
+    "candidates": [
+      {
+        "url": "offscript.cc",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "dead (EPROTO)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "dead (EPROTO)"
+          }
+        ]
+      },
+      {
+        "url": "prompt-files.com",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "dead (ENOTFOUND)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "dead (ENOTFOUND)"
+          }
+        ]
+      },
+      {
+        "url": "minnix.cv",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "dead (ENOTFOUND)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "dead (ENOTFOUND)"
+          }
+        ]
+      },
+      {
+        "url": "moodie.blog",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "dead (ENOTFOUND)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "dead (ENOTFOUND)"
+          }
+        ]
+      },
+      {
+        "url": "tino.works",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "HTTP 403",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "HTTP 403"
+          }
+        ]
+      },
+      {
+        "url": "535.studio",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "Client network socket disconnected before secure TLS connection was established",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "retry",
+            "reason": "Client network socket disconnected before secure TLS connection was established"
+          },
+          {
+            "step": "live",
+            "attempt": 2,
+            "result": "retry",
+            "reason": "Client network socket disconnected before secure TLS connection was established"
+          }
+        ]
+      },
+      {
+        "url": "serhii.be",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "dead (ENOTFOUND)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "dead (ENOTFOUND)"
+          }
+        ]
+      },
+      {
+        "url": "zaidmukaddam.com",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "HTTP 429",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "HTTP 429"
+          }
+        ]
+      },
+      {
+        "url": "suresh.im",
+        "source": "sheet",
+        "outcome": "failed",
+        "reason": "duplicate URL in archive",
+        "review": {
+          "verdict": "accept",
+          "score": 9,
+          "kind": "personal",
+          "name": "Suresh Chaudhary",
+          "reason": "Minimalist typographic layout with generous whitespace, presenting projects and thoughts in a clean, restrained, and uncluttered personal format.",
+          "model": "dots-studio/dots-3-note-preview:free"
+        },
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "review",
+            "attempt": 1,
+            "result": "pass",
+            "model": "dots-studio/dots-3-note-preview:free"
+          },
+          {
+            "step": "publish",
+            "attempt": 1,
+            "result": "retry",
+            "reason": "duplicate URL in archive"
+          }
+        ]
+      },
+      {
+        "url": "udeet.in",
+        "source": "sheet",
+        "outcome": "failed",
+        "reason": "duplicate URL in archive",
+        "review": {
+          "verdict": "accept",
+          "score": 9,
+          "kind": "portfolio",
+          "name": "Udeet Mittal",
+          "reason": "A highly restrained, typographic layout with ample whitespace, presenting a clean personal portfolio free of clutter.",
+          "model": "dots-studio/dots-3-note-preview:free"
+        },
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "review",
+            "attempt": 1,
+            "result": "pass",
+            "model": "dots-studio/dots-3-note-preview:free"
+          },
+          {
+            "step": "publish",
+            "attempt": 1,
+            "result": "retry",
+            "reason": "duplicate URL in archive"
+          }
+        ]
+      },
+      {
+        "url": "jasonjun.dev",
+        "source": "sheet",
+        "outcome": "failed",
+        "reason": "duplicate URL in archive",
+        "review": {
+          "verdict": "accept",
+          "score": 9,
+          "kind": "personal",
+          "name": "Jason Jun",
+          "reason": "A highly restrained, typographic personal site with generous whitespace, clean grid layout, and subtle interactive craft.",
+          "model": "dots-studio/dots-3-note-preview:free"
+        },
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "review",
+            "attempt": 1,
+            "result": "pass",
+            "model": "dots-studio/dots-3-note-preview:free"
+          },
+          {
+            "step": "publish",
+            "attempt": 1,
+            "result": "retry",
+            "reason": "duplicate URL in archive"
+          }
+        ]
+      },
+      {
+        "url": "giteshsarvaiya.co",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "dead (ENOTFOUND)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "dead (ENOTFOUND)"
+          }
+        ]
+      }
+    ]
+  }
+]
