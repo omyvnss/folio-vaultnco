@@ -40,7 +40,9 @@ async function runStep(step, ctx, trace) {
   for (let attempt = 1; attempt <= step.attempts; attempt++) {
     let out;
     try { out = await step.run(ctx, attempt); }
-    catch (e) { last = e.message; trace.push({ step: step.name, attempt, result: 'error', reason: last }); continue; }
+    catch (e) {
+      if (e instanceof ai.PaidModelError) throw e; // free-only lock tripped → stop everything
+      last = e.message; trace.push({ step: step.name, attempt, result: 'error', reason: last }); continue; }
 
     const v = step.verify(out, ctx);
     if (v.data) Object.assign(ctx, v.data);

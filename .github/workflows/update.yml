@@ -41,6 +41,7 @@ jobs:
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           PER_DAY: ${{ vars.PER_DAY || '1' }}
+          MAX_AI_CALLS: '20' # hard cap per run; free models only (see engine/openrouter.js)
         run: node engine/run.js
 
       # Uses the runner's preinstalled Google Chrome. Captures missing/blank

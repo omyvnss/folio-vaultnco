@@ -95,7 +95,7 @@ async function askModels({ messages, vision = false, attempt }) {
   const errors = [];
   for (const model of order) {
     try { return { model, reply: await ai.chat(model, messages) }; }
-    catch (e) { errors.push(e.message); }
+    catch (e) { if (e instanceof ai.PaidModelError) throw e; errors.push(e.message); }
   }
   throw new Error('all models failed: ' + errors.join(' | '));
 }
@@ -225,6 +225,7 @@ const review = {
         { role: 'user', content: [{ type: 'text', text: facts }, { type: 'image_url', image_url: { url: image } }] },
       ] });
     } catch (e) {
+      if (e instanceof ai.PaidModelError) throw e;
       // no vision model answered — fall back to text-only review
       return await askModels({ attempt, messages: [
         { role: 'system', content: REVIEW_PROMPT },

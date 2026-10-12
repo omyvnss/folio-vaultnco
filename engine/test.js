@@ -2,7 +2,7 @@
 /** Verifier tests — no network. Run: node engine/test.js */
 const assert = require('assert');
 const { discover, live, review, webpSize } = require('./steps.js');
-const { extractJSON } = require('./openrouter.js');
+const { extractJSON, isFreeListing } = require('./openrouter.js');
 
 let passed = 0;
 const t = (name, fn) => { fn(); passed++; console.log('  ✓', name); };
@@ -10,6 +10,12 @@ const t = (name, fn) => { fn(); passed++; console.log('  ✓', name); };
 const facts = { title: 'Jane Doe', description: '', text: 'Designer', words: 120, scripts: 3, images: 2, links: 6, bytes: 9000 };
 const rv = (obj, f = facts) => review.verify({ reply: typeof obj === 'string' ? obj : JSON.stringify(obj), model: 'm:free' }, { facts: f });
 const good = { verdict: 'accept', score: 8, kind: 'portfolio', name: 'Jane Doe', reason: 'Quiet typographic portfolio.' };
+
+console.log('free-only guard');
+t('accepts :free with zero pricing', () => assert.ok(isFreeListing({ id: 'g/x:free', pricing: { prompt: '0', completion: '0' } })));
+t('blocks paid model', () => assert.ok(!isFreeListing({ id: 'openai/gpt-5', pricing: { prompt: '0.000002', completion: '0.00001' } })));
+t('blocks :free id with non-zero price', () => assert.ok(!isFreeListing({ id: 'g/x:free', pricing: { prompt: '0', completion: '0.0001' } })));
+t('blocks zero price without :free id', () => assert.ok(!isFreeListing({ id: 'g/x', pricing: { prompt: '0', completion: '0' } })));
 
 console.log('extractJSON');
 t('reads fenced JSON', () => assert.deepStrictEqual(extractJSON('Sure!\n```json\n{"a":1}\n```'), { a: 1 }));
