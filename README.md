@@ -16,9 +16,24 @@ Pitch-black, monospace, zero build step. Every site verified live before it appe
     retried on the next run. Each new site records its `added` date.
 - **`cache-screenshots.js`** — captures missing/blank previews with headless
   Chrome and normalises every preview to a real 1280×800 WebP (needs `cwebp`).
-- **`.github/workflows/update.yml`** — runs **once a day** on GitHub's servers.
-  Sync → screenshots → auto-commit, so the live site stays current.
-  No secrets, no external services.
+- **`engine/`** — the self-updating engine (`node engine/run.js [--dry-run]`).
+  Publishes 1 new site per day through verified steps:
+
+  ```
+  candidate ─► live ─► screenshot ─► AI review ─► publish
+     │          │          │             │            │
+   verify     verify     verify        verify       verify
+  ```
+
+  Candidates come from the sheet; when it runs dry, a free OpenRouter model
+  discovers new sites. Each step has a deterministic code verifier — bad AI
+  output is retried on another free model, unsuitable sites go to
+  `data/rejected.json`, and every run is logged in `data/engine-log.json`.
+  Verifier tests: `node engine/test.js`.
+- **`.github/workflows/update.yml`** — runs **once a day** on GitHub's servers:
+  self-test → engine → screenshot normalisation → auto-commit.
+  Needs repo secret **`OPENROUTER_API_KEY`** (free key from openrouter.ai) for
+  AI review/discovery; without it the engine uses heuristic checks only.
 - **`og.png`, `favicon.svg`, `apple-touch-icon.png`** — link-preview + icons.
 
 ## Run locally
@@ -49,7 +64,7 @@ node server.js          # → http://localhost:3000
 ## Update the directory
 
 Add or remove URLs at the source. Verified changes appear on the site within a
-day automatically (3 new sites per run). Manual sync anytime:
+day automatically (1 new verified site per day; set repo variable `PER_DAY` to change). Manual sync anytime:
 repo → **Actions** → *update-archive* → **Run workflow**.
 
 ---

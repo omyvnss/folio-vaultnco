@@ -97,4 +97,6 @@ function main() {
   if (failed.length) console.log('Missing:\n' + failed.map((u) => '  - ' + u).join('\n'));
 }
 
-main();
+module.exports = { findChrome, which, isWebP, toWebP, capture, BLANK_BYTES };
+
+if (require.main === module) main();

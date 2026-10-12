@@ -310,7 +310,12 @@ const server = http.createServer((req, res) => {
 /*  Main                                                               */
 /* ------------------------------------------------------------------ */
 
-(async () => {
+module.exports = {
+  DATA_DIR, SITE_JSON, SITE_CSV, SCREENSHOT_DIR,
+  csvToSites, fetchSheet, checkUrl, downloadScreenshot, safeFilename,
+};
+
+if (require.main === module) (async () => {
   if (process.argv[2] === 'sync') {
     try { await sync(); }
     catch (e) { console.error('Sync failed:', e.message); process.exit(1); }
