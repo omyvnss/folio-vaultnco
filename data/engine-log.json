@@ -1,5 +1,51 @@
 [
   {
+    "at": "2026-10-13T08:33:06.554Z",
+    "ai": true,
+    "published": [
+      "suresh.im"
+    ],
+    "candidates": [
+      {
+        "url": "suresh.im",
+        "source": "sheet",
+        "outcome": "published",
+        "reason": "",
+        "review": {
+          "verdict": "accept",
+          "score": 9,
+          "kind": "personal",
+          "name": "Suresh Chaudhary",
+          "reason": "Extremely minimal, text-driven personal site with high whitespace and a clear focus on projects and thoughts without any marketing clutter.",
+          "model": "google/gemma-4-26b-a4b-it:free"
+        },
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "review",
+            "attempt": 1,
+            "result": "pass",
+            "model": "google/gemma-4-26b-a4b-it:free"
+          },
+          {
+            "step": "publish",
+            "attempt": 1,
+            "result": "pass"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "at": "2026-10-12T19:48:54.726Z",
     "ai": true,
     "published": [],

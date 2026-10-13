@@ -1,7 +1,7 @@
 {
-  "count": 86,
+  "count": 87,
   "total": 161,
-  "updated": "2026-10-11T22:01:38.717Z",
+  "updated": "2026-10-13T08:33:06.552Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -518,6 +518,14 @@
       "date": "2026-08-24",
       "status": "ok",
       "added": "2026-10-11"
+    },
+    {
+      "url": "suresh.im",
+      "date": "2026-08-24",
+      "added": "2026-10-13",
+      "name": "Suresh Chaudhary",
+      "source": "sheet",
+      "score": 9
     }
   ]
 }
