@@ -1,5 +1,5 @@
 {
-  "count": 87,
+  "count": 86,
   "total": 161,
   "updated": "2026-10-11T22:01:38.717Z",
   "sites": [
@@ -269,12 +269,6 @@
     },
     {
       "url": "eric.rest",
-      "date": "2026-08-21",
-      "status": "ok",
-      "added": "2026-08-23"
-    },
-    {
-      "url": "fennell.cv",
       "date": "2026-08-21",
       "status": "ok",
       "added": "2026-08-23"

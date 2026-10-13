@@ -513,6 +513,7 @@
         return list
           .map((s) => ({ url: normalizeURL(s?.url ?? s), date: parseDate(s?.added || s?.date) }))
           .filter((s) => /^[a-z0-9-]+(\.[a-z0-9-]+)+/i.test(s.url))
+          .filter((s, i, all) => all.findIndex((o) => o.url === s.url) === i) // never show a site twice
           .map((s) => ({
             ...s,
             isNew: !!s.date && Date.now() - s.date.getTime() <= NEW_WINDOW_DAYS * 86400000,

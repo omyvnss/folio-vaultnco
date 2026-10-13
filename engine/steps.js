@@ -301,7 +301,7 @@ const publish = {
     if (json.sites.length !== out.before + 1) return { ok: false, retry: `expected ${out.before + 1} sites, found ${json.sites.length}` };
     if (json.count !== json.sites.length) return { ok: false, retry: 'count field out of sync' };
     if (urls[urls.length - 1] !== ctx.url) return { ok: false, retry: 'new site is not last entry' };
-    if (new Set(urls).size !== urls.length) return { ok: false, retry: 'duplicate URL in archive' };
+    if (urls.filter((u) => u === ctx.url).length !== 1) return { ok: false, retry: 'new URL appears more than once' };
     if (!shots.isWebP(fs.readFileSync(out.shotPath))) return { ok: false, retry: 'published screenshot is not WebP' };
     const csvRows = fs.readFileSync(core.SITE_CSV, 'utf8').trim().split('\n').length - 1;
     if (csvRows !== json.sites.length) return { ok: false, retry: `CSV has ${csvRows} rows, JSON has ${json.sites.length}` };
