@@ -1,5 +1,57 @@
 [
   {
+    "at": "2026-10-13T22:41:13.692Z",
+    "ai": true,
+    "published": [
+      "udeet.in"
+    ],
+    "candidates": [
+      {
+        "url": "udeet.in",
+        "source": "sheet",
+        "outcome": "published",
+        "reason": "",
+        "review": {
+          "verdict": "accept",
+          "score": 9,
+          "kind": "portfolio",
+          "name": "Udeet Mittal",
+          "reason": "A highly minimalist and clean personal portfolio site featuring elegant typography, generous whitespace, and subtle, tasteful color highlights.",
+          "model": "dots-studio/dots-3-note-preview:free"
+        },
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "retry",
+            "reason": "no screenshot produced"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 2,
+            "result": "pass"
+          },
+          {
+            "step": "review",
+            "attempt": 1,
+            "result": "pass",
+            "model": "dots-studio/dots-3-note-preview:free"
+          },
+          {
+            "step": "publish",
+            "attempt": 1,
+            "result": "pass"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "at": "2026-10-13T08:33:06.554Z",
     "ai": true,
     "published": [
