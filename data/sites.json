@@ -1,7 +1,7 @@
 {
-  "count": 88,
+  "count": 89,
   "total": 161,
-  "updated": "2026-10-13T22:41:13.691Z",
+  "updated": "2026-10-14T21:38:08.130Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -532,6 +532,14 @@
       "date": "2026-08-24",
       "added": "2026-10-13",
       "name": "Udeet Mittal",
+      "source": "sheet",
+      "score": 9
+    },
+    {
+      "url": "jasonjun.dev",
+      "date": "2026-08-24",
+      "added": "2026-10-14",
+      "name": "Jason Jun",
       "source": "sheet",
       "score": 9
     }

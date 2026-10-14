@@ -1,5 +1,51 @@
 [
   {
+    "at": "2026-10-14T21:38:08.133Z",
+    "ai": true,
+    "published": [
+      "jasonjun.dev"
+    ],
+    "candidates": [
+      {
+        "url": "jasonjun.dev",
+        "source": "sheet",
+        "outcome": "published",
+        "reason": "",
+        "review": {
+          "verdict": "accept",
+          "score": 9,
+          "kind": "personal",
+          "name": "Jason Jun",
+          "reason": "A beautifully minimal personal site featuring clean typography, generous whitespace, and a single subtle interactive canvas element.",
+          "model": "dots-studio/dots-3-note-preview:free"
+        },
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "review",
+            "attempt": 1,
+            "result": "pass",
+            "model": "dots-studio/dots-3-note-preview:free"
+          },
+          {
+            "step": "publish",
+            "attempt": 1,
+            "result": "pass"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "at": "2026-10-13T22:41:13.692Z",
     "ai": true,
     "published": [
