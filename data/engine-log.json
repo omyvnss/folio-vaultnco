@@ -1,5 +1,51 @@
 [
   {
+    "at": "2026-10-15T21:19:31.692Z",
+    "ai": true,
+    "published": [
+      "cameron.so"
+    ],
+    "candidates": [
+      {
+        "url": "cameron.so",
+        "source": "sheet",
+        "outcome": "published",
+        "reason": "",
+        "review": {
+          "verdict": "accept",
+          "score": 9,
+          "kind": "portfolio",
+          "name": "Cameron Youngblood",
+          "reason": "A stark, typographic personal portfolio with abundant whitespace and zero images, adhering strictly to minimal design principles.",
+          "model": "nvidia/nemotron-3.5-super-vl:free"
+        },
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "review",
+            "attempt": 1,
+            "result": "pass",
+            "model": "nvidia/nemotron-3.5-super-vl:free"
+          },
+          {
+            "step": "publish",
+            "attempt": 1,
+            "result": "pass"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "at": "2026-10-14T21:38:08.133Z",
     "ai": true,
     "published": [

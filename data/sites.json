@@ -1,7 +1,7 @@
 {
-  "count": 89,
+  "count": 90,
   "total": 161,
-  "updated": "2026-10-14T21:38:08.130Z",
+  "updated": "2026-10-15T21:19:31.690Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -540,6 +540,14 @@
       "date": "2026-08-24",
       "added": "2026-10-14",
       "name": "Jason Jun",
+      "source": "sheet",
+      "score": 9
+    },
+    {
+      "url": "cameron.so",
+      "date": "2026-08-24",
+      "added": "2026-10-15",
+      "name": "Cameron Youngblood",
       "source": "sheet",
       "score": 9
     }
