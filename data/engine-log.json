@@ -1,5 +1,90 @@
 [
   {
+    "at": "2026-10-17T20:33:02.438Z",
+    "ai": true,
+    "published": [
+      "facumontanaro.com"
+    ],
+    "candidates": [
+      {
+        "url": "chanhdai.com",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "too script-heavy (68 scripts)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "review",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "too script-heavy (68 scripts)",
+            "model": "nvidia/nemotron-3.5-super-vl:free"
+          }
+        ]
+      },
+      {
+        "url": "6942020.xyz",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "HTTP 403",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "HTTP 403"
+          }
+        ]
+      },
+      {
+        "url": "facumontanaro.com",
+        "source": "sheet",
+        "outcome": "published",
+        "reason": "",
+        "review": {
+          "verdict": "accept",
+          "score": 9,
+          "kind": "portfolio",
+          "name": "Facundo Montanaro",
+          "reason": "A highly minimal personal portfolio with ample whitespace, clean typography, and no ads or clutter, showcasing design work and studio projects.",
+          "model": "nvidia/nemotron-3.5-super-vl:free"
+        },
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "review",
+            "attempt": 1,
+            "result": "pass",
+            "model": "nvidia/nemotron-3.5-super-vl:free"
+          },
+          {
+            "step": "publish",
+            "attempt": 1,
+            "result": "pass"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "at": "2026-10-16T21:03:23.869Z",
     "ai": true,
     "published": [

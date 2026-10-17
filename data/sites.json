@@ -1,7 +1,7 @@
 {
-  "count": 91,
+  "count": 92,
   "total": 161,
-  "updated": "2026-10-16T21:03:23.867Z",
+  "updated": "2026-10-17T20:33:02.437Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -558,6 +558,14 @@
       "name": "Cuchillo",
       "source": "sheet",
       "score": 8
+    },
+    {
+      "url": "facumontanaro.com",
+      "date": "2026-08-24",
+      "added": "2026-10-17",
+      "name": "Facundo Montanaro",
+      "source": "sheet",
+      "score": 9
     }
   ]
 }
