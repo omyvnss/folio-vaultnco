@@ -1,5 +1,51 @@
 [
   {
+    "at": "2026-10-18T20:36:44.060Z",
+    "ai": true,
+    "published": [
+      "amirmxt.com"
+    ],
+    "candidates": [
+      {
+        "url": "amirmxt.com",
+        "source": "sheet",
+        "outcome": "published",
+        "reason": "",
+        "review": {
+          "verdict": "accept",
+          "score": 8,
+          "kind": "personal",
+          "name": "Amir Mxt",
+          "reason": "Clean typographic personal site with ample whitespace, restrained navigation, and no ads or commercial clutter.",
+          "model": "nvidia/nemotron-3.5-super-vl:free"
+        },
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "review",
+            "attempt": 1,
+            "result": "pass",
+            "model": "nvidia/nemotron-3.5-super-vl:free"
+          },
+          {
+            "step": "publish",
+            "attempt": 1,
+            "result": "pass"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "at": "2026-10-17T20:33:02.438Z",
     "ai": true,
     "published": [
