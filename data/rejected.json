@@ -2,12 +2,12 @@
   "offscript.cc": {
     "step": "live",
     "reason": "dead (EPROTO)",
-    "at": "2026-10-12T19:48:08.880Z"
+    "at": "2026-10-19T22:18:44.884Z"
   },
   "prompt-files.com": {
     "step": "live",
     "reason": "dead (ENOTFOUND)",
-    "at": "2026-10-12T19:48:08.891Z"
+    "at": "2026-10-19T22:18:44.941Z"
   },
   "minnix.cv": {
     "step": "live",

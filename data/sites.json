@@ -1,7 +1,7 @@
 {
-  "count": 93,
+  "count": 94,
   "total": 161,
-  "updated": "2026-10-18T20:36:44.058Z",
+  "updated": "2026-10-19T22:18:56.067Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -572,6 +572,14 @@
       "date": "2026-08-24",
       "added": "2026-10-18",
       "name": "Amir Mxt",
+      "source": "sheet",
+      "score": 8
+    },
+    {
+      "url": "minnix.cv",
+      "date": "2026-08-21",
+      "added": "2026-10-19",
+      "name": "Minnix",
       "source": "sheet",
       "score": 8
     }
