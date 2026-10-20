@@ -17,32 +17,32 @@
   "moodie.blog": {
     "step": "live",
     "reason": "dead (ENOTFOUND)",
-    "at": "2026-10-12T19:48:08.947Z"
+    "at": "2026-10-20T21:34:08.664Z"
   },
   "tino.works": {
     "step": "live",
     "reason": "HTTP 403",
-    "at": "2026-10-12T19:48:09.279Z"
+    "at": "2026-10-20T21:34:08.870Z"
   },
   "535.studio": {
     "step": "live",
     "reason": "Client network socket disconnected before secure TLS connection was established",
-    "at": "2026-10-12T19:48:10.273Z"
+    "at": "2026-10-20T21:34:09.733Z"
   },
   "serhii.be": {
     "step": "live",
     "reason": "dead (ENOTFOUND)",
-    "at": "2026-10-12T19:48:10.379Z"
+    "at": "2026-10-20T21:34:09.889Z"
   },
   "zaidmukaddam.com": {
     "step": "live",
     "reason": "HTTP 429",
-    "at": "2026-10-12T19:48:10.444Z"
+    "at": "2026-10-20T21:34:10.075Z"
   },
   "giteshsarvaiya.co": {
     "step": "live",
     "reason": "dead (ENOTFOUND)",
-    "at": "2026-10-12T19:48:54.726Z"
+    "at": "2026-10-20T21:34:10.122Z"
   },
   "chanhdai.com": {
     "step": "review",
@@ -53,5 +53,10 @@
     "step": "live",
     "reason": "HTTP 403",
     "at": "2026-10-17T20:32:44.719Z"
+  },
+  "andrs.me": {
+    "step": "live",
+    "reason": "Client network socket disconnected before secure TLS connection was established",
+    "at": "2026-10-20T21:34:11.159Z"
   }
 }

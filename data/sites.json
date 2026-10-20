@@ -1,7 +1,7 @@
 {
-  "count": 94,
+  "count": 95,
   "total": 161,
-  "updated": "2026-10-19T22:18:56.067Z",
+  "updated": "2026-10-20T21:34:28.980Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -582,6 +582,14 @@
       "name": "Minnix",
       "source": "sheet",
       "score": 8
+    },
+    {
+      "url": "kulpinski.dev",
+      "date": "2026-08-24",
+      "added": "2026-10-20",
+      "name": "Piotr Kulpinski",
+      "source": "sheet",
+      "score": 9
     }
   ]
 }
