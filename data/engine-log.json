@@ -1,5 +1,51 @@
 [
   {
+    "at": "2026-10-21T21:37:09.391Z",
+    "ai": true,
+    "published": [
+      "lakshb.dev"
+    ],
+    "candidates": [
+      {
+        "url": "lakshb.dev",
+        "source": "sheet",
+        "outcome": "published",
+        "reason": "",
+        "review": {
+          "verdict": "accept",
+          "score": 9,
+          "kind": "personal",
+          "name": "Lakshay Bhushan",
+          "reason": "A spare, typographic personal site with generous whitespace, a subtle terminal motif, and no clutter or marketing elements.",
+          "model": "minimax/minimax-m3.1-flash:free"
+        },
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "review",
+            "attempt": 1,
+            "result": "pass",
+            "model": "minimax/minimax-m3.1-flash:free"
+          },
+          {
+            "step": "publish",
+            "attempt": 1,
+            "result": "pass"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "at": "2026-10-20T21:34:28.982Z",
     "ai": true,
     "published": [

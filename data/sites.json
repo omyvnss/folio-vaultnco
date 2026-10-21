@@ -1,7 +1,7 @@
 {
-  "count": 95,
+  "count": 96,
   "total": 161,
-  "updated": "2026-10-20T21:34:28.980Z",
+  "updated": "2026-10-21T21:37:09.389Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -588,6 +588,14 @@
       "date": "2026-08-24",
       "added": "2026-10-20",
       "name": "Piotr Kulpinski",
+      "source": "sheet",
+      "score": 9
+    },
+    {
+      "url": "lakshb.dev",
+      "date": "2026-08-24",
+      "added": "2026-10-21",
+      "name": "Lakshay Bhushan",
       "source": "sheet",
       "score": 9
     }
