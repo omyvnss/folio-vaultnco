@@ -1,7 +1,7 @@
 {
-  "count": 96,
+  "count": 97,
   "total": 161,
-  "updated": "2026-10-21T21:37:09.389Z",
+  "updated": "2026-10-22T21:31:33.306Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -596,6 +596,14 @@
       "date": "2026-08-24",
       "added": "2026-10-21",
       "name": "Lakshay Bhushan",
+      "source": "sheet",
+      "score": 9
+    },
+    {
+      "url": "ambedg.ar",
+      "date": "2026-08-24",
+      "added": "2026-10-22",
+      "name": "Edgar Ambartsoumian",
       "source": "sheet",
       "score": 9
     }

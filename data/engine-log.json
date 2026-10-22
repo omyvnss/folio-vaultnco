@@ -1,5 +1,123 @@
 [
   {
+    "at": "2026-10-22T21:31:33.309Z",
+    "ai": true,
+    "published": [
+      "ambedg.ar"
+    ],
+    "candidates": [
+      {
+        "url": "min.dpaulos.pt",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "dead (ENOTFOUND)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "dead (ENOTFOUND)"
+          }
+        ]
+      },
+      {
+        "url": "shadcn.com",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "AI: Rejected due to e-commerce element selling Copper for Mac and marketing-heavy product promotion despite minimal visual design.",
+        "review": {
+          "verdict": "reject",
+          "score": 4,
+          "kind": "product",
+          "name": "shadcn",
+          "reason": "Rejected due to e-commerce element selling Copper for Mac and marketing-heavy product promotion despite minimal visual design.",
+          "model": "nvidia/nemotron-3.5-super-vl:free"
+        },
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "review",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "AI: Rejected due to e-commerce element selling Copper for Mac and marketing-heavy product promotion despite minimal visual design.",
+            "model": "nvidia/nemotron-3.5-super-vl:free"
+          }
+        ]
+      },
+      {
+        "url": "jstn.net",
+        "source": "sheet",
+        "outcome": "failed",
+        "reason": "looks blank (3796 bytes)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "retry",
+            "reason": "looks blank (3754 bytes)"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 2,
+            "result": "retry",
+            "reason": "looks blank (3796 bytes)"
+          }
+        ]
+      },
+      {
+        "url": "ambedg.ar",
+        "source": "sheet",
+        "outcome": "published",
+        "reason": "",
+        "review": {
+          "verdict": "accept",
+          "score": 9,
+          "kind": "portfolio",
+          "name": "Edgar Ambartsoumian",
+          "reason": "Ultra-minimal personal portfolio with restrained typography, ample whitespace, zero images, and only essential content — no ads, tracking, or clutter.",
+          "model": "nvidia/nemotron-3-ultra-550b-a55b:free"
+        },
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "review",
+            "attempt": 1,
+            "result": "pass",
+            "model": "nvidia/nemotron-3-ultra-550b-a55b:free"
+          },
+          {
+            "step": "publish",
+            "attempt": 1,
+            "result": "pass"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "at": "2026-10-21T21:37:09.391Z",
     "ai": true,
     "published": [

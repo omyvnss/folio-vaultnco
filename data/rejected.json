@@ -58,5 +58,17 @@
     "step": "live",
     "reason": "Client network socket disconnected before secure TLS connection was established",
     "at": "2026-10-20T21:34:11.159Z"
+  },
+  "min.dpaulos.pt": {
+    "step": "live",
+    "reason": "dead (ENOTFOUND)",
+    "at": "2026-10-22T21:30:57.274Z"
+  },
+  "shadcn.com": {
+    "step": "review",
+    "reason": "AI: Rejected due to e-commerce element selling Copper for Mac and marketing-heavy product promotion despite minimal visual design.",
+    "at": "2026-10-22T21:31:09.983Z",
+    "score": 4,
+    "model": "nvidia/nemotron-3.5-super-vl:free"
   }
 }
