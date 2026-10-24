@@ -1,7 +1,7 @@
 {
-  "count": 98,
+  "count": 99,
   "total": 161,
-  "updated": "2026-10-23T21:21:21.991Z",
+  "updated": "2026-10-24T20:44:18.629Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -614,6 +614,14 @@
       "name": "From Then",
       "source": "sheet",
       "score": 9
+    },
+    {
+      "url": "jrosen.design",
+      "date": "2026-08-24",
+      "added": "2026-10-24",
+      "name": "Joel Rosen",
+      "source": "sheet",
+      "score": 8
     }
   ]
 }

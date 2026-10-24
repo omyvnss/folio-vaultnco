@@ -52,7 +52,7 @@
   "6942020.xyz": {
     "step": "live",
     "reason": "HTTP 403",
-    "at": "2026-10-17T20:32:44.719Z"
+    "at": "2026-10-24T20:43:33.018Z"
   },
   "andrs.me": {
     "step": "live",
@@ -70,5 +70,10 @@
     "at": "2026-10-22T21:31:09.983Z",
     "score": 4,
     "model": "nvidia/nemotron-3.5-super-vl:free"
+  },
+  "carlbeaverson.com": {
+    "step": "review",
+    "reason": "too script-heavy (79 scripts)",
+    "at": "2026-10-24T20:44:03.447Z"
   }
 }

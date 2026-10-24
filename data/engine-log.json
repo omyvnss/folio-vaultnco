@@ -1,5 +1,115 @@
 [
   {
+    "at": "2026-10-24T20:44:18.631Z",
+    "ai": true,
+    "published": [
+      "jrosen.design"
+    ],
+    "candidates": [
+      {
+        "url": "6942020.xyz",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "HTTP 403",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "HTTP 403"
+          }
+        ]
+      },
+      {
+        "url": "jstn.net",
+        "source": "sheet",
+        "outcome": "failed",
+        "reason": "looks blank (3796 bytes)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "retry",
+            "reason": "looks blank (3754 bytes)"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 2,
+            "result": "retry",
+            "reason": "looks blank (3796 bytes)"
+          }
+        ]
+      },
+      {
+        "url": "carlbeaverson.com",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "too script-heavy (79 scripts)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "review",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "too script-heavy (79 scripts)",
+            "model": "nvidia/nemotron-3.5-super-vl:free"
+          }
+        ]
+      },
+      {
+        "url": "jrosen.design",
+        "source": "sheet",
+        "outcome": "published",
+        "reason": "",
+        "review": {
+          "verdict": "accept",
+          "score": 8,
+          "kind": "studio",
+          "name": "Joel Rosen",
+          "reason": "Minimalist studio portfolio for Joel Rosen featuring generous whitespace, centered typography, and a clean project grid without ads or clutter.",
+          "model": "nvidia/nemotron-3.5-super-vl:free"
+        },
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "review",
+            "attempt": 1,
+            "result": "pass",
+            "model": "nvidia/nemotron-3.5-super-vl:free"
+          },
+          {
+            "step": "publish",
+            "attempt": 1,
+            "result": "pass"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "at": "2026-10-23T21:21:21.995Z",
     "ai": true,
     "published": [
