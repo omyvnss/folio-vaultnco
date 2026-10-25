@@ -1,5 +1,76 @@
 [
   {
+    "at": "2026-10-25T20:48:06.047Z",
+    "ai": true,
+    "published": [
+      "tcosta.com"
+    ],
+    "candidates": [
+      {
+        "url": "jstn.net",
+        "source": "sheet",
+        "outcome": "failed",
+        "reason": "looks blank (3796 bytes)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "retry",
+            "reason": "looks blank (3754 bytes)"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 2,
+            "result": "retry",
+            "reason": "looks blank (3796 bytes)"
+          }
+        ]
+      },
+      {
+        "url": "tcosta.com",
+        "source": "sheet",
+        "outcome": "published",
+        "reason": "",
+        "review": {
+          "verdict": "accept",
+          "score": 8,
+          "kind": "personal",
+          "name": "Thiago Costa",
+          "reason": "A stark black-background personal site with sparse typography, ample whitespace, and no ads or commercial clutter.",
+          "model": "nvidia/nemotron-3.5-super-vl:free"
+        },
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "review",
+            "attempt": 1,
+            "result": "pass",
+            "model": "nvidia/nemotron-3.5-super-vl:free"
+          },
+          {
+            "step": "publish",
+            "attempt": 1,
+            "result": "pass"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "at": "2026-10-24T20:44:18.631Z",
     "ai": true,
     "published": [

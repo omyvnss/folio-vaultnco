@@ -1,7 +1,7 @@
 {
-  "count": 99,
+  "count": 100,
   "total": 161,
-  "updated": "2026-10-24T20:44:18.629Z",
+  "updated": "2026-10-25T20:48:05.974Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -620,6 +620,14 @@
       "date": "2026-08-24",
       "added": "2026-10-24",
       "name": "Joel Rosen",
+      "source": "sheet",
+      "score": 8
+    },
+    {
+      "url": "tcosta.com",
+      "date": "2026-08-24",
+      "added": "2026-10-25",
+      "name": "Thiago Costa",
       "source": "sheet",
       "score": 8
     }
