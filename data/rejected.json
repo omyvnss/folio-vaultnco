@@ -2,12 +2,12 @@
   "offscript.cc": {
     "step": "live",
     "reason": "dead (EPROTO)",
-    "at": "2026-10-19T22:18:44.884Z"
+    "at": "2026-10-26T22:37:03.800Z"
   },
   "prompt-files.com": {
     "step": "live",
     "reason": "dead (ENOTFOUND)",
-    "at": "2026-10-19T22:18:44.941Z"
+    "at": "2026-10-26T22:37:03.843Z"
   },
   "minnix.cv": {
     "step": "live",
@@ -75,5 +75,10 @@
     "step": "review",
     "reason": "too script-heavy (79 scripts)",
     "at": "2026-10-24T20:44:03.447Z"
+  },
+  "alexnaghavi.com": {
+    "step": "live",
+    "reason": "parked / placeholder domain",
+    "at": "2026-10-26T22:37:17.779Z"
   }
 }

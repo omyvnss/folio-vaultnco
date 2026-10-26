@@ -1,5 +1,118 @@
 [
   {
+    "at": "2026-10-26T22:37:34.706Z",
+    "ai": true,
+    "published": [
+      "navchatterji.com"
+    ],
+    "candidates": [
+      {
+        "url": "offscript.cc",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "dead (EPROTO)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "dead (EPROTO)"
+          }
+        ]
+      },
+      {
+        "url": "prompt-files.com",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "dead (ENOTFOUND)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "dead (ENOTFOUND)"
+          }
+        ]
+      },
+      {
+        "url": "jstn.net",
+        "source": "sheet",
+        "outcome": "failed",
+        "reason": "looks blank (3796 bytes)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "retry",
+            "reason": "looks blank (3754 bytes)"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 2,
+            "result": "retry",
+            "reason": "looks blank (3796 bytes)"
+          }
+        ]
+      },
+      {
+        "url": "alexnaghavi.com",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "parked / placeholder domain",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "parked / placeholder domain"
+          }
+        ]
+      },
+      {
+        "url": "navchatterji.com",
+        "source": "sheet",
+        "outcome": "published",
+        "reason": "",
+        "review": {
+          "verdict": "accept",
+          "score": 10,
+          "kind": "personal",
+          "name": "Nav Chatterji",
+          "reason": "Ultra-minimal personal site with a single large image and name, tiny HTML footprint, no clutter.",
+          "model": "nvidia/nemotron-3.5-super-vl:free"
+        },
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "review",
+            "attempt": 1,
+            "result": "pass",
+            "model": "nvidia/nemotron-3.5-super-vl:free"
+          },
+          {
+            "step": "publish",
+            "attempt": 1,
+            "result": "pass"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "at": "2026-10-25T20:48:06.047Z",
     "ai": true,
     "published": [

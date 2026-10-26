@@ -1,7 +1,7 @@
 {
-  "count": 100,
+  "count": 101,
   "total": 161,
-  "updated": "2026-10-25T20:48:05.974Z",
+  "updated": "2026-10-26T22:37:34.704Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -630,6 +630,14 @@
       "name": "Thiago Costa",
       "source": "sheet",
       "score": 8
+    },
+    {
+      "url": "navchatterji.com",
+      "date": "2026-08-24",
+      "added": "2026-10-26",
+      "name": "Nav Chatterji",
+      "source": "sheet",
+      "score": 10
     }
   ]
 }
