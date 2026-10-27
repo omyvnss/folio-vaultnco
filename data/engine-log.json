@@ -1,5 +1,167 @@
 [
   {
+    "at": "2026-10-27T22:09:26.242Z",
+    "ai": true,
+    "published": [
+      "jstn.net"
+    ],
+    "candidates": [
+      {
+        "url": "moodie.blog",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "dead (ENOTFOUND)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "dead (ENOTFOUND)"
+          }
+        ]
+      },
+      {
+        "url": "tino.works",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "HTTP 403",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "HTTP 403"
+          }
+        ]
+      },
+      {
+        "url": "535.studio",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "Client network socket disconnected before secure TLS connection was established",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "retry",
+            "reason": "Client network socket disconnected before secure TLS connection was established"
+          },
+          {
+            "step": "live",
+            "attempt": 2,
+            "result": "retry",
+            "reason": "Client network socket disconnected before secure TLS connection was established"
+          }
+        ]
+      },
+      {
+        "url": "serhii.be",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "dead (ENOTFOUND)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "dead (ENOTFOUND)"
+          }
+        ]
+      },
+      {
+        "url": "zaidmukaddam.com",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "HTTP 429",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "HTTP 429"
+          }
+        ]
+      },
+      {
+        "url": "giteshsarvaiya.co",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "dead (ENOTFOUND)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "dead (ENOTFOUND)"
+          }
+        ]
+      },
+      {
+        "url": "andrs.me",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "Client network socket disconnected before secure TLS connection was established",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "retry",
+            "reason": "Client network socket disconnected before secure TLS connection was established"
+          },
+          {
+            "step": "live",
+            "attempt": 2,
+            "result": "retry",
+            "reason": "Client network socket disconnected before secure TLS connection was established"
+          }
+        ]
+      },
+      {
+        "url": "jstn.net",
+        "source": "sheet",
+        "outcome": "published",
+        "reason": "",
+        "review": {
+          "verdict": "accept",
+          "score": 9,
+          "kind": "personal",
+          "name": "Justin Ouellette",
+          "reason": "Extremely minimal personal résumé site with zero scripts or images, relying entirely on typography and whitespace.",
+          "model": "nvidia/nemotron-3.5-super-vl:free"
+        },
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "retry",
+            "reason": "looks blank (3754 bytes)"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 2,
+            "result": "pass"
+          },
+          {
+            "step": "review",
+            "attempt": 1,
+            "result": "pass",
+            "model": "nvidia/nemotron-3.5-super-vl:free"
+          },
+          {
+            "step": "publish",
+            "attempt": 1,
+            "result": "pass"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "at": "2026-10-26T22:37:34.706Z",
     "ai": true,
     "published": [
