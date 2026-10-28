@@ -1,5 +1,51 @@
 [
   {
+    "at": "2026-10-28T22:31:09.182Z",
+    "ai": true,
+    "published": [
+      "federic.ooo"
+    ],
+    "candidates": [
+      {
+        "url": "federic.ooo",
+        "source": "sheet",
+        "outcome": "published",
+        "reason": "",
+        "review": {
+          "verdict": "accept",
+          "score": 9,
+          "kind": "portfolio",
+          "name": "Federico Valla",
+          "reason": "A highly restrained, typographic personal portfolio for Federico Valla with abundant whitespace, zero images, and no ads or marketing clutter.",
+          "model": "nvidia/nemotron-3.5-super-vl:free"
+        },
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "review",
+            "attempt": 1,
+            "result": "pass",
+            "model": "nvidia/nemotron-3.5-super-vl:free"
+          },
+          {
+            "step": "publish",
+            "attempt": 1,
+            "result": "pass"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "at": "2026-10-27T22:09:26.242Z",
     "ai": true,
     "published": [
