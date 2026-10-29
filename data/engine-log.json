@@ -1,5 +1,65 @@
 [
   {
+    "at": "2026-10-29T22:42:28.516Z",
+    "ai": true,
+    "published": [
+      "jimmyl.ee"
+    ],
+    "candidates": [
+      {
+        "url": "min.dpaulos.pt",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "dead (ENOTFOUND)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "dead (ENOTFOUND)"
+          }
+        ]
+      },
+      {
+        "url": "jimmyl.ee",
+        "source": "sheet",
+        "outcome": "published",
+        "reason": "",
+        "review": {
+          "verdict": "accept",
+          "score": 9,
+          "kind": "personal",
+          "name": "wwwjim",
+          "reason": "Extremely minimal typographic personal site with monospace font, ample whitespace, and no ads or marketing clutter.",
+          "model": "nvidia/nemotron-3.5-super-vl:free"
+        },
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "review",
+            "attempt": 1,
+            "result": "pass",
+            "model": "nvidia/nemotron-3.5-super-vl:free"
+          },
+          {
+            "step": "publish",
+            "attempt": 1,
+            "result": "pass"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "at": "2026-10-28T22:31:09.182Z",
     "ai": true,
     "published": [

@@ -1,7 +1,7 @@
 {
-  "count": 103,
+  "count": 104,
   "total": 161,
-  "updated": "2026-10-28T22:31:09.179Z",
+  "updated": "2026-10-29T22:42:28.514Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -652,6 +652,14 @@
       "date": "2026-08-24",
       "added": "2026-10-28",
       "name": "Federico Valla",
+      "source": "sheet",
+      "score": 9
+    },
+    {
+      "url": "jimmyl.ee",
+      "date": "2026-08-24",
+      "added": "2026-10-29",
+      "name": "wwwjim",
       "source": "sheet",
       "score": 9
     }
