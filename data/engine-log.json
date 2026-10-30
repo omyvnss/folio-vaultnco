@@ -1,5 +1,51 @@
 [
   {
+    "at": "2026-10-30T22:16:43.290Z",
+    "ai": true,
+    "published": [
+      "maxpotze.com"
+    ],
+    "candidates": [
+      {
+        "url": "maxpotze.com",
+        "source": "sheet",
+        "outcome": "published",
+        "reason": "",
+        "review": {
+          "verdict": "accept",
+          "score": 8,
+          "kind": "portfolio",
+          "name": "Max Potze",
+          "reason": "Clean personal portfolio with minimal text, restrained typography, and a focused work timeline.",
+          "model": "nvidia/nemotron-3-ultra-550b-a55b:free"
+        },
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "review",
+            "attempt": 1,
+            "result": "pass",
+            "model": "nvidia/nemotron-3-ultra-550b-a55b:free"
+          },
+          {
+            "step": "publish",
+            "attempt": 1,
+            "result": "pass"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "at": "2026-10-29T22:42:28.516Z",
     "ai": true,
     "published": [

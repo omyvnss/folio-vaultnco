@@ -1,7 +1,7 @@
 {
-  "count": 104,
+  "count": 105,
   "total": 161,
-  "updated": "2026-10-29T22:42:28.514Z",
+  "updated": "2026-10-30T22:16:43.287Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -662,6 +662,14 @@
       "name": "wwwjim",
       "source": "sheet",
       "score": 9
+    },
+    {
+      "url": "maxpotze.com",
+      "date": "2026-08-24",
+      "added": "2026-10-30",
+      "name": "Max Potze",
+      "source": "sheet",
+      "score": 8
     }
   ]
 }
