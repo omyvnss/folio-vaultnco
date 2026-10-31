@@ -52,7 +52,7 @@
   "6942020.xyz": {
     "step": "live",
     "reason": "HTTP 403",
-    "at": "2026-10-24T20:43:33.018Z"
+    "at": "2026-10-31T21:28:20.666Z"
   },
   "andrs.me": {
     "step": "live",
@@ -80,5 +80,12 @@
     "step": "live",
     "reason": "parked / placeholder domain",
     "at": "2026-10-26T22:37:17.779Z"
+  },
+  "thisispam.com": {
+    "step": "review",
+    "reason": "AI: Marketing-heavy agency landing page selling Shopify e-commerce and branding services, not a restrained personal portfolio.",
+    "at": "2026-10-31T21:28:33.453Z",
+    "score": 4,
+    "model": "nvidia/nemotron-3.5-super-vl:free"
   }
 }

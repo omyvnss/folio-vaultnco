@@ -1,7 +1,7 @@
 {
-  "count": 105,
+  "count": 106,
   "total": 161,
-  "updated": "2026-10-30T22:16:43.287Z",
+  "updated": "2026-10-31T21:28:43.761Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -668,6 +668,14 @@
       "date": "2026-08-24",
       "added": "2026-10-30",
       "name": "Max Potze",
+      "source": "sheet",
+      "score": 8
+    },
+    {
+      "url": "omercan.io",
+      "date": "2026-08-24",
+      "added": "2026-10-31",
+      "name": "Omercan Balandi",
       "source": "sheet",
       "score": 8
     }

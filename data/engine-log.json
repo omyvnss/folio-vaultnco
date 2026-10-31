@@ -1,5 +1,98 @@
 [
   {
+    "at": "2026-10-31T21:28:43.763Z",
+    "ai": true,
+    "published": [
+      "omercan.io"
+    ],
+    "candidates": [
+      {
+        "url": "6942020.xyz",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "HTTP 403",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "HTTP 403"
+          }
+        ]
+      },
+      {
+        "url": "thisispam.com",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "AI: Marketing-heavy agency landing page selling Shopify e-commerce and branding services, not a restrained personal portfolio.",
+        "review": {
+          "verdict": "reject",
+          "score": 4,
+          "kind": "studio",
+          "name": "Pam",
+          "reason": "Marketing-heavy agency landing page selling Shopify e-commerce and branding services, not a restrained personal portfolio.",
+          "model": "nvidia/nemotron-3.5-super-vl:free"
+        },
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "review",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "AI: Marketing-heavy agency landing page selling Shopify e-commerce and branding services, not a restrained personal portfolio.",
+            "model": "nvidia/nemotron-3.5-super-vl:free"
+          }
+        ]
+      },
+      {
+        "url": "omercan.io",
+        "source": "sheet",
+        "outcome": "published",
+        "reason": "",
+        "review": {
+          "verdict": "accept",
+          "score": 8,
+          "kind": "portfolio",
+          "name": "Omercan Balandi",
+          "reason": "Clean dark-mode personal portfolio with generous whitespace, restrained typography, and minimal elements focused on developer bio and projects.",
+          "model": "nvidia/nemotron-3.5-super-vl:free"
+        },
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "review",
+            "attempt": 1,
+            "result": "pass",
+            "model": "nvidia/nemotron-3.5-super-vl:free"
+          },
+          {
+            "step": "publish",
+            "attempt": 1,
+            "result": "pass"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "at": "2026-10-30T22:16:43.290Z",
     "ai": true,
     "published": [
