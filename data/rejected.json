@@ -87,5 +87,10 @@
     "at": "2026-10-31T21:28:33.453Z",
     "score": 4,
     "model": "nvidia/nemotron-3.5-super-vl:free"
+  },
+  "brunch.work": {
+    "step": "live",
+    "reason": "HTTP 403",
+    "at": "2026-11-01T21:58:21.283Z"
   }
 }

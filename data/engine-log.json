@@ -1,5 +1,65 @@
 [
   {
+    "at": "2026-11-01T21:58:36.819Z",
+    "ai": true,
+    "published": [
+      "craighooper.xyz"
+    ],
+    "candidates": [
+      {
+        "url": "brunch.work",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "HTTP 403",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "HTTP 403"
+          }
+        ]
+      },
+      {
+        "url": "craighooper.xyz",
+        "source": "sheet",
+        "outcome": "published",
+        "reason": "",
+        "review": {
+          "verdict": "accept",
+          "score": 9,
+          "kind": "portfolio",
+          "name": "Craig Hooper",
+          "reason": "A restrained typographic personal portfolio with ample whitespace, minimal navigation, and no ads or marketing clutter.",
+          "model": "nvidia/nemotron-3.5-super-vl:free"
+        },
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "review",
+            "attempt": 1,
+            "result": "pass",
+            "model": "nvidia/nemotron-3.5-super-vl:free"
+          },
+          {
+            "step": "publish",
+            "attempt": 1,
+            "result": "pass"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "at": "2026-10-31T21:28:43.763Z",
     "ai": true,
     "published": [

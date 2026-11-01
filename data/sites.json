@@ -1,7 +1,7 @@
 {
-  "count": 106,
+  "count": 107,
   "total": 161,
-  "updated": "2026-10-31T21:28:43.761Z",
+  "updated": "2026-11-01T21:58:36.817Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -678,6 +678,14 @@
       "name": "Omercan Balandi",
       "source": "sheet",
       "score": 8
+    },
+    {
+      "url": "craighooper.xyz",
+      "date": "2026-08-24",
+      "added": "2026-11-01",
+      "name": "Craig Hooper",
+      "source": "sheet",
+      "score": 9
     }
   ]
 }
