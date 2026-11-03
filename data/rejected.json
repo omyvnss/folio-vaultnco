@@ -17,22 +17,22 @@
   "moodie.blog": {
     "step": "live",
     "reason": "dead (ENOTFOUND)",
-    "at": "2026-10-27T22:09:06.325Z"
+    "at": "2026-11-03T23:16:23.331Z"
   },
   "tino.works": {
     "step": "live",
     "reason": "HTTP 403",
-    "at": "2026-10-27T22:09:06.420Z"
+    "at": "2026-11-03T23:16:23.402Z"
   },
   "535.studio": {
     "step": "live",
     "reason": "Client network socket disconnected before secure TLS connection was established",
-    "at": "2026-10-27T22:09:07.118Z"
+    "at": "2026-11-03T23:16:24.081Z"
   },
   "serhii.be": {
     "step": "live",
     "reason": "dead (ENOTFOUND)",
-    "at": "2026-10-27T22:09:07.312Z"
+    "at": "2026-11-03T23:16:24.188Z"
   },
   "zaidmukaddam.com": {
     "step": "live",
