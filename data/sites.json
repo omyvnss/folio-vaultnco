@@ -1,7 +1,7 @@
 {
-  "count": 107,
+  "count": 108,
   "total": 161,
-  "updated": "2026-11-01T21:58:36.817Z",
+  "updated": "2026-11-03T00:55:22.763Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -686,6 +686,14 @@
       "name": "Craig Hooper",
       "source": "sheet",
       "score": 9
+    },
+    {
+      "url": "wireframe.co",
+      "date": "2026-08-24",
+      "added": "2026-11-03",
+      "name": "Wireframe Design Studio",
+      "source": "sheet",
+      "score": 8
     }
   ]
 }
