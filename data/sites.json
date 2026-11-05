@@ -1,7 +1,7 @@
 {
-  "count": 110,
+  "count": 111,
   "total": 161,
-  "updated": "2026-11-04T23:37:36.904Z",
+  "updated": "2026-11-05T23:36:16.854Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -708,6 +708,14 @@
       "date": "2026-08-24",
       "added": "2026-11-04",
       "name": "James Braund",
+      "source": "sheet",
+      "score": 8
+    },
+    {
+      "url": "preciousm.co",
+      "date": "2026-08-24",
+      "added": "2026-11-05",
+      "name": "Precious M.",
       "source": "sheet",
       "score": 8
     }
