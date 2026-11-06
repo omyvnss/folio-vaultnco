@@ -1,5 +1,51 @@
 [
   {
+    "at": "2026-11-06T23:04:29.997Z",
+    "ai": true,
+    "published": [
+      "daleanthony.com"
+    ],
+    "candidates": [
+      {
+        "url": "daleanthony.com",
+        "source": "sheet",
+        "outcome": "published",
+        "reason": "",
+        "review": {
+          "verdict": "accept",
+          "score": 9,
+          "kind": "portfolio",
+          "name": "Dale-Anthony Williams",
+          "reason": "Minimalist personal portfolio with restrained typography, generous whitespace, and no ads or marketing bloat.",
+          "model": "nvidia/nemotron-3.5-super-vl:free"
+        },
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "review",
+            "attempt": 1,
+            "result": "pass",
+            "model": "nvidia/nemotron-3.5-super-vl:free"
+          },
+          {
+            "step": "publish",
+            "attempt": 1,
+            "result": "pass"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "at": "2026-11-05T23:36:16.856Z",
     "ai": true,
     "published": [

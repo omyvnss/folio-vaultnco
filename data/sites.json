@@ -1,7 +1,7 @@
 {
-  "count": 111,
+  "count": 112,
   "total": 161,
-  "updated": "2026-11-05T23:36:16.854Z",
+  "updated": "2026-11-06T23:04:29.994Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -718,6 +718,14 @@
       "name": "Precious M.",
       "source": "sheet",
       "score": 8
+    },
+    {
+      "url": "daleanthony.com",
+      "date": "2026-08-24",
+      "added": "2026-11-06",
+      "name": "Dale-Anthony Williams",
+      "source": "sheet",
+      "score": 9
     }
   ]
 }
