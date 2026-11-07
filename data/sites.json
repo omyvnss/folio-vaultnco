@@ -1,7 +1,7 @@
 {
-  "count": 112,
+  "count": 113,
   "total": 161,
-  "updated": "2026-11-06T23:04:29.994Z",
+  "updated": "2026-11-07T21:45:08.434Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -724,6 +724,14 @@
       "date": "2026-08-24",
       "added": "2026-11-06",
       "name": "Dale-Anthony Williams",
+      "source": "sheet",
+      "score": 9
+    },
+    {
+      "url": "jakub.kr",
+      "date": "2026-08-24",
+      "added": "2026-11-07",
+      "name": "Jakub Krehel",
       "source": "sheet",
       "score": 9
     }
