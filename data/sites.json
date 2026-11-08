@@ -1,7 +1,7 @@
 {
-  "count": 113,
+  "count": 114,
   "total": 161,
-  "updated": "2026-11-07T21:45:08.434Z",
+  "updated": "2026-11-08T21:59:23.341Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -732,6 +732,14 @@
       "date": "2026-08-24",
       "added": "2026-11-07",
       "name": "Jakub Krehel",
+      "source": "sheet",
+      "score": 9
+    },
+    {
+      "url": "naveen.com",
+      "date": "2026-08-24",
+      "added": "2026-11-08",
+      "name": "naveen selvadurai",
       "source": "sheet",
       "score": 9
     }

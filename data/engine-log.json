@@ -1,5 +1,90 @@
 [
   {
+    "at": "2026-11-08T21:59:23.344Z",
+    "ai": true,
+    "published": [
+      "naveen.com"
+    ],
+    "candidates": [
+      {
+        "url": "brunch.work",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "HTTP 403",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "HTTP 403"
+          }
+        ]
+      },
+      {
+        "url": "andymccune.com",
+        "source": "sheet",
+        "outcome": "failed",
+        "reason": "no screenshot produced",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "retry",
+            "reason": "looks blank (1888 bytes)"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 2,
+            "result": "retry",
+            "reason": "no screenshot produced"
+          }
+        ]
+      },
+      {
+        "url": "naveen.com",
+        "source": "sheet",
+        "outcome": "published",
+        "reason": "",
+        "review": {
+          "verdict": "accept",
+          "score": 9,
+          "kind": "personal",
+          "name": "naveen selvadurai",
+          "reason": "A starkly minimal personal site using only typography and whitespace to chronicle presence, current work, and past projects.",
+          "model": "nvidia/nemotron-3.5-super-vl:free"
+        },
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "review",
+            "attempt": 1,
+            "result": "pass",
+            "model": "nvidia/nemotron-3.5-super-vl:free"
+          },
+          {
+            "step": "publish",
+            "attempt": 1,
+            "result": "pass"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "at": "2026-11-07T21:45:08.436Z",
     "ai": true,
     "published": [
