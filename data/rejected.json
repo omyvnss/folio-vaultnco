@@ -97,5 +97,22 @@
     "step": "live",
     "reason": "dead (ENOTFOUND)",
     "at": "2026-11-10T01:29:22.192Z"
+  },
+  "thisisveryrude.com": {
+    "step": "review",
+    "reason": "too much content for a minimal site (6535 words)",
+    "at": "2026-11-10T23:14:34.622Z"
+  },
+  "goods.so": {
+    "step": "review",
+    "reason": "AI: It is a product catalogue/e-commerce site curating physical goods, not a personal site, portfolio, or studio.",
+    "at": "2026-11-10T23:14:44.459Z",
+    "score": 6,
+    "model": "nvidia/nemotron-3.5-super-vl:free"
+  },
+  "gav.space": {
+    "step": "live",
+    "reason": "redirects to another domain (gavinatkinson.com)",
+    "at": "2026-11-10T23:14:44.649Z"
   }
 }

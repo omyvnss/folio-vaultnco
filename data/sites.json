@@ -1,7 +1,7 @@
 {
-  "count": 115,
+  "count": 116,
   "total": 161,
-  "updated": "2026-11-10T01:29:41.296Z",
+  "updated": "2026-11-10T23:14:58.959Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -750,6 +750,14 @@
       "name": "Otherdays",
       "source": "sheet",
       "score": 9
+    },
+    {
+      "url": "arsenije.me",
+      "date": "2026-08-24",
+      "added": "2026-11-10",
+      "name": "Arsenije “Archie” Ćatić",
+      "source": "sheet",
+      "score": 8
     }
   ]
 }

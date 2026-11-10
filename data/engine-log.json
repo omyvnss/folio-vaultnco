@@ -1,5 +1,173 @@
 [
   {
+    "at": "2026-11-10T23:14:58.961Z",
+    "ai": true,
+    "published": [
+      "arsenije.me"
+    ],
+    "candidates": [
+      {
+        "url": "andymccune.com",
+        "source": "sheet",
+        "outcome": "failed",
+        "reason": "no screenshot produced",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "retry",
+            "reason": "looks blank (1888 bytes)"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 2,
+            "result": "retry",
+            "reason": "no screenshot produced"
+          }
+        ]
+      },
+      {
+        "url": "minimalism.com",
+        "source": "sheet",
+        "outcome": "failed",
+        "reason": "looks blank (4178 bytes)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "retry",
+            "reason": "looks blank (4144 bytes)"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 2,
+            "result": "retry",
+            "reason": "looks blank (4178 bytes)"
+          }
+        ]
+      },
+      {
+        "url": "thisisveryrude.com",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "too much content for a minimal site (6535 words)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "review",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "too much content for a minimal site (6535 words)",
+            "model": "nvidia/nemotron-3.5-super-vl:free"
+          }
+        ]
+      },
+      {
+        "url": "goods.so",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "AI: It is a product catalogue/e-commerce site curating physical goods, not a personal site, portfolio, or studio.",
+        "review": {
+          "verdict": "reject",
+          "score": 6,
+          "kind": "product",
+          "name": "Goods",
+          "reason": "It is a product catalogue/e-commerce site curating physical goods, not a personal site, portfolio, or studio.",
+          "model": "nvidia/nemotron-3.5-super-vl:free"
+        },
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "review",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "AI: It is a product catalogue/e-commerce site curating physical goods, not a personal site, portfolio, or studio.",
+            "model": "nvidia/nemotron-3.5-super-vl:free"
+          }
+        ]
+      },
+      {
+        "url": "gav.space",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "redirects to another domain (gavinatkinson.com)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "redirects to another domain (gavinatkinson.com)"
+          }
+        ]
+      },
+      {
+        "url": "arsenije.me",
+        "source": "sheet",
+        "outcome": "published",
+        "reason": "",
+        "review": {
+          "verdict": "accept",
+          "score": 8,
+          "kind": "personal",
+          "name": "Arsenije “Archie” Ćatić",
+          "reason": "A stark black-background personal site using generous whitespace and typography with no ads, cookie walls, or e-commerce elements.",
+          "model": "nvidia/nemotron-3.5-super-vl:free"
+        },
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "review",
+            "attempt": 1,
+            "result": "pass",
+            "model": "nvidia/nemotron-3.5-super-vl:free"
+          },
+          {
+            "step": "publish",
+            "attempt": 1,
+            "result": "pass"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "at": "2026-11-10T01:29:41.298Z",
     "ai": true,
     "published": [
