@@ -1,7 +1,7 @@
 {
-  "count": 114,
+  "count": 115,
   "total": 161,
-  "updated": "2026-11-08T21:59:23.341Z",
+  "updated": "2026-11-10T01:29:41.296Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -740,6 +740,14 @@
       "date": "2026-08-24",
       "added": "2026-11-08",
       "name": "naveen selvadurai",
+      "source": "sheet",
+      "score": 9
+    },
+    {
+      "url": "otherdays.studio",
+      "date": "2026-08-24",
+      "added": "2026-11-10",
+      "name": "Otherdays",
       "source": "sheet",
       "score": 9
     }

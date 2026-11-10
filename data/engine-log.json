@@ -1,5 +1,157 @@
 [
   {
+    "at": "2026-11-10T01:29:41.298Z",
+    "ai": true,
+    "published": [
+      "otherdays.studio"
+    ],
+    "candidates": [
+      {
+        "url": "offscript.cc",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "dead (EPROTO)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "dead (EPROTO)"
+          }
+        ]
+      },
+      {
+        "url": "prompt-files.com",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "dead (ENOTFOUND)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "dead (ENOTFOUND)"
+          }
+        ]
+      },
+      {
+        "url": "alexnaghavi.com",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "parked / placeholder domain",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "parked / placeholder domain"
+          }
+        ]
+      },
+      {
+        "url": "andymccune.com",
+        "source": "sheet",
+        "outcome": "failed",
+        "reason": "no screenshot produced",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "retry",
+            "reason": "looks blank (1888 bytes)"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 2,
+            "result": "retry",
+            "reason": "no screenshot produced"
+          }
+        ]
+      },
+      {
+        "url": "findaboxing.club",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "dead (ENOTFOUND)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "dead (ENOTFOUND)"
+          }
+        ]
+      },
+      {
+        "url": "minimalism.com",
+        "source": "sheet",
+        "outcome": "failed",
+        "reason": "looks blank (4178 bytes)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "retry",
+            "reason": "looks blank (4144 bytes)"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 2,
+            "result": "retry",
+            "reason": "looks blank (4178 bytes)"
+          }
+        ]
+      },
+      {
+        "url": "otherdays.studio",
+        "source": "sheet",
+        "outcome": "published",
+        "reason": "",
+        "review": {
+          "verdict": "accept",
+          "score": 9,
+          "kind": "studio",
+          "name": "Otherdays",
+          "reason": "An indie product studio with an extremely restrained black-and-white design, few elements, and ample negative space.",
+          "model": "nvidia/nemotron-3.5-super-vl:free"
+        },
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "review",
+            "attempt": 1,
+            "result": "pass",
+            "model": "nvidia/nemotron-3.5-super-vl:free"
+          },
+          {
+            "step": "publish",
+            "attempt": 1,
+            "result": "pass"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "at": "2026-11-08T21:59:23.344Z",
     "ai": true,
     "published": [
