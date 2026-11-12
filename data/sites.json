@@ -1,7 +1,7 @@
 {
-  "count": 117,
+  "count": 118,
   "total": 161,
-  "updated": "2026-11-12T00:38:29.371Z",
+  "updated": "2026-11-12T23:33:27.472Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -766,6 +766,14 @@
       "name": "Prateek Keshari",
       "source": "sheet",
       "score": 8
+    },
+    {
+      "url": "felipe.design",
+      "date": "2026-08-24",
+      "added": "2026-11-12",
+      "name": "Felipe",
+      "source": "sheet",
+      "score": 9
     }
   ]
 }
