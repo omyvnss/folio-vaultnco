@@ -1,5 +1,239 @@
 [
   {
+    "at": "2026-11-12T00:38:29.374Z",
+    "ai": true,
+    "published": [
+      "prateekkeshari.com"
+    ],
+    "candidates": [
+      {
+        "url": "moodie.blog",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "dead (ENOTFOUND)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "dead (ENOTFOUND)"
+          }
+        ]
+      },
+      {
+        "url": "tino.works",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "HTTP 403",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "HTTP 403"
+          }
+        ]
+      },
+      {
+        "url": "535.studio",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "Client network socket disconnected before secure TLS connection was established",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "retry",
+            "reason": "Client network socket disconnected before secure TLS connection was established"
+          },
+          {
+            "step": "live",
+            "attempt": 2,
+            "result": "retry",
+            "reason": "Client network socket disconnected before secure TLS connection was established"
+          }
+        ]
+      },
+      {
+        "url": "serhii.be",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "dead (ENOTFOUND)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "dead (ENOTFOUND)"
+          }
+        ]
+      },
+      {
+        "url": "giteshsarvaiya.co",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "dead (ENOTFOUND)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "dead (ENOTFOUND)"
+          }
+        ]
+      },
+      {
+        "url": "andrs.me",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "dead (ENOTFOUND)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "dead (ENOTFOUND)"
+          }
+        ]
+      },
+      {
+        "url": "andymccune.com",
+        "source": "sheet",
+        "outcome": "failed",
+        "reason": "no screenshot produced",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "retry",
+            "reason": "looks blank (1888 bytes)"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 2,
+            "result": "retry",
+            "reason": "no screenshot produced"
+          }
+        ]
+      },
+      {
+        "url": "minimalism.com",
+        "source": "sheet",
+        "outcome": "failed",
+        "reason": "looks blank (4178 bytes)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "retry",
+            "reason": "looks blank (4144 bytes)"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 2,
+            "result": "retry",
+            "reason": "looks blank (4178 bytes)"
+          }
+        ]
+      },
+      {
+        "url": "parth.ski",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "dead (certificate)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "dead (certificate)"
+          }
+        ]
+      },
+      {
+        "url": "hiasmir.com",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "HTTP 522",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "retry",
+            "reason": "HTTP 522"
+          },
+          {
+            "step": "live",
+            "attempt": 2,
+            "result": "retry",
+            "reason": "HTTP 522"
+          }
+        ]
+      },
+      {
+        "url": "liams.life",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "HTTP 404",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "HTTP 404"
+          }
+        ]
+      },
+      {
+        "url": "prateekkeshari.com",
+        "source": "sheet",
+        "outcome": "published",
+        "reason": "",
+        "review": {
+          "verdict": "accept",
+          "score": 8,
+          "kind": "personal",
+          "name": "Prateek Keshari",
+          "reason": "A restrained dark-mode personal site featuring typographic hierarchy, ample whitespace, and no advertising or commercial clutter.",
+          "model": "nvidia/nemotron-3.5-super-vl:free"
+        },
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "review",
+            "attempt": 1,
+            "result": "pass",
+            "model": "nvidia/nemotron-3.5-super-vl:free"
+          },
+          {
+            "step": "publish",
+            "attempt": 1,
+            "result": "pass"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "at": "2026-11-10T23:14:58.961Z",
     "ai": true,
     "published": [

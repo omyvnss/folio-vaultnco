@@ -1,7 +1,7 @@
 {
-  "count": 116,
+  "count": 117,
   "total": 161,
-  "updated": "2026-11-10T23:14:58.959Z",
+  "updated": "2026-11-12T00:38:29.371Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -756,6 +756,14 @@
       "date": "2026-08-24",
       "added": "2026-11-10",
       "name": "Arsenije “Archie” Ćatić",
+      "source": "sheet",
+      "score": 8
+    },
+    {
+      "url": "prateekkeshari.com",
+      "date": "2026-08-24",
+      "added": "2026-11-12",
+      "name": "Prateek Keshari",
       "source": "sheet",
       "score": 8
     }

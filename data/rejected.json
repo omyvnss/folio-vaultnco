@@ -17,22 +17,22 @@
   "moodie.blog": {
     "step": "live",
     "reason": "dead (ENOTFOUND)",
-    "at": "2026-11-03T23:16:23.331Z"
+    "at": "2026-11-12T00:35:47.586Z"
   },
   "tino.works": {
     "step": "live",
     "reason": "HTTP 403",
-    "at": "2026-11-03T23:16:23.402Z"
+    "at": "2026-11-12T00:35:47.765Z"
   },
   "535.studio": {
     "step": "live",
     "reason": "Client network socket disconnected before secure TLS connection was established",
-    "at": "2026-11-03T23:16:24.081Z"
+    "at": "2026-11-12T00:35:48.201Z"
   },
   "serhii.be": {
     "step": "live",
     "reason": "dead (ENOTFOUND)",
-    "at": "2026-11-03T23:16:24.188Z"
+    "at": "2026-11-12T00:35:48.240Z"
   },
   "zaidmukaddam.com": {
     "step": "live",
@@ -42,7 +42,7 @@
   "giteshsarvaiya.co": {
     "step": "live",
     "reason": "dead (ENOTFOUND)",
-    "at": "2026-11-04T23:37:22.546Z"
+    "at": "2026-11-12T00:35:48.248Z"
   },
   "chanhdai.com": {
     "step": "review",
@@ -57,7 +57,7 @@
   "andrs.me": {
     "step": "live",
     "reason": "dead (ENOTFOUND)",
-    "at": "2026-11-04T23:37:22.579Z"
+    "at": "2026-11-12T00:35:48.264Z"
   },
   "min.dpaulos.pt": {
     "step": "live",
@@ -114,5 +114,20 @@
     "step": "live",
     "reason": "redirects to another domain (gavinatkinson.com)",
     "at": "2026-11-10T23:14:44.649Z"
+  },
+  "parth.ski": {
+    "step": "live",
+    "reason": "dead (certificate)",
+    "at": "2026-11-12T00:37:11.366Z"
+  },
+  "hiasmir.com": {
+    "step": "live",
+    "reason": "HTTP 522",
+    "at": "2026-11-12T00:37:11.582Z"
+  },
+  "liams.life": {
+    "step": "live",
+    "reason": "HTTP 404",
+    "at": "2026-11-12T00:37:11.629Z"
   }
 }
