@@ -1,7 +1,7 @@
 {
-  "count": 118,
+  "count": 119,
   "total": 161,
-  "updated": "2026-11-12T23:33:27.472Z",
+  "updated": "2026-11-13T23:30:11.986Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -772,6 +772,14 @@
       "date": "2026-08-24",
       "added": "2026-11-12",
       "name": "Felipe",
+      "source": "sheet",
+      "score": 9
+    },
+    {
+      "url": "eryc.cc",
+      "date": "2026-08-24",
+      "added": "2026-11-13",
+      "name": "ERYC",
       "source": "sheet",
       "score": 9
     }
