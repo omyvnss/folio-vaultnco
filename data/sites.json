@@ -1,7 +1,7 @@
 {
-  "count": 119,
+  "count": 120,
   "total": 161,
-  "updated": "2026-11-13T23:30:11.986Z",
+  "updated": "2026-11-14T22:19:31.703Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -782,6 +782,14 @@
       "name": "ERYC",
       "source": "sheet",
       "score": 9
+    },
+    {
+      "url": "reaper.is",
+      "date": "2026-08-24",
+      "added": "2026-11-14",
+      "name": "Reaper",
+      "source": "sheet",
+      "score": 8
     }
   ]
 }

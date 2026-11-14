@@ -1,5 +1,148 @@
 [
   {
+    "at": "2026-11-14T22:19:31.705Z",
+    "ai": true,
+    "published": [
+      "reaper.is"
+    ],
+    "candidates": [
+      {
+        "url": "6942020.xyz",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "HTTP 403",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "HTTP 403"
+          }
+        ]
+      },
+      {
+        "url": "andymccune.com",
+        "source": "sheet",
+        "outcome": "failed",
+        "reason": "no screenshot produced",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "retry",
+            "reason": "looks blank (1888 bytes)"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 2,
+            "result": "retry",
+            "reason": "no screenshot produced"
+          }
+        ]
+      },
+      {
+        "url": "minimalism.com",
+        "source": "sheet",
+        "outcome": "failed",
+        "reason": "looks blank (4178 bytes)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "retry",
+            "reason": "looks blank (4144 bytes)"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 2,
+            "result": "retry",
+            "reason": "looks blank (4178 bytes)"
+          }
+        ]
+      },
+      {
+        "url": "bmrks.com",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "AI: Beautifully restrained typographic page, but it's a login-gated bookmarking app/product, not a personal site, portfolio, or studio.",
+        "review": {
+          "verdict": "reject",
+          "score": 7,
+          "kind": "product",
+          "name": "(Basic) Bookmarks",
+          "reason": "Beautifully restrained typographic page, but it's a login-gated bookmarking app/product, not a personal site, portfolio, or studio.",
+          "model": "inclusionai/ling-3.2-flash:free"
+        },
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "review",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "AI: Beautifully restrained typographic page, but it's a login-gated bookmarking app/product, not a personal site, portfolio, or studio.",
+            "model": "inclusionai/ling-3.2-flash:free"
+          }
+        ]
+      },
+      {
+        "url": "reaper.is",
+        "source": "sheet",
+        "outcome": "published",
+        "reason": "",
+        "review": {
+          "verdict": "accept",
+          "score": 8,
+          "kind": "personal",
+          "name": "Reaper",
+          "reason": "Sparse single-viewport page: small logo mark, name, two short paragraphs, four text links, generous whitespace, no images or clutter.",
+          "model": "inclusionai/ling-3.2-flash:free"
+        },
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "review",
+            "attempt": 1,
+            "result": "pass",
+            "model": "inclusionai/ling-3.2-flash:free"
+          },
+          {
+            "step": "publish",
+            "attempt": 1,
+            "result": "pass"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "at": "2026-11-13T23:30:11.988Z",
     "ai": true,
     "published": [
