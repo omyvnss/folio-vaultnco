@@ -1,7 +1,7 @@
 {
-  "count": 120,
+  "count": 121,
   "total": 161,
-  "updated": "2026-11-14T22:19:31.703Z",
+  "updated": "2026-11-15T22:46:14.582Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -790,6 +790,14 @@
       "name": "Reaper",
       "source": "sheet",
       "score": 8
+    },
+    {
+      "url": "paco.me",
+      "date": "2026-08-24",
+      "added": "2026-11-15",
+      "name": "Paco Coursey",
+      "source": "sheet",
+      "score": 9
     }
   ]
 }
