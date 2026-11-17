@@ -1,7 +1,7 @@
 {
-  "count": 121,
+  "count": 122,
   "total": 161,
-  "updated": "2026-11-15T22:46:14.582Z",
+  "updated": "2026-11-17T01:51:42.980Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -796,6 +796,14 @@
       "date": "2026-08-24",
       "added": "2026-11-15",
       "name": "Paco Coursey",
+      "source": "sheet",
+      "score": 9
+    },
+    {
+      "url": "2dots.xyz",
+      "date": "2026-08-24",
+      "added": "2026-11-17",
+      "name": "Raunak Trikha",
       "source": "sheet",
       "score": 9
     }

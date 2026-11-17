@@ -2,12 +2,12 @@
   "offscript.cc": {
     "step": "live",
     "reason": "dead (EPROTO)",
-    "at": "2026-11-10T01:29:10.723Z"
+    "at": "2026-11-17T01:51:07.191Z"
   },
   "prompt-files.com": {
     "step": "live",
     "reason": "dead (ENOTFOUND)",
-    "at": "2026-11-10T01:29:10.752Z"
+    "at": "2026-11-17T01:51:07.245Z"
   },
   "minnix.cv": {
     "step": "live",
@@ -79,7 +79,7 @@
   "alexnaghavi.com": {
     "step": "live",
     "reason": "parked / placeholder domain",
-    "at": "2026-11-10T01:29:11.096Z"
+    "at": "2026-11-17T01:51:08.138Z"
   },
   "thisispam.com": {
     "step": "review",
@@ -96,7 +96,7 @@
   "findaboxing.club": {
     "step": "live",
     "reason": "dead (ENOTFOUND)",
-    "at": "2026-11-10T01:29:22.192Z"
+    "at": "2026-11-17T01:51:17.663Z"
   },
   "thisisveryrude.com": {
     "step": "review",
