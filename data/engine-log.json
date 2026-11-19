@@ -1,5 +1,181 @@
 [
   {
+    "at": "2026-11-19T00:19:43.335Z",
+    "ai": true,
+    "published": [
+      "anandbaburajan.com"
+    ],
+    "candidates": [
+      {
+        "url": "andymccune.com",
+        "source": "sheet",
+        "outcome": "failed",
+        "reason": "no screenshot produced",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "retry",
+            "reason": "looks blank (1888 bytes)"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 2,
+            "result": "retry",
+            "reason": "no screenshot produced"
+          }
+        ]
+      },
+      {
+        "url": "minimalism.com",
+        "source": "sheet",
+        "outcome": "failed",
+        "reason": "looks blank (4178 bytes)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "retry",
+            "reason": "looks blank (4144 bytes)"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 2,
+            "result": "retry",
+            "reason": "looks blank (4178 bytes)"
+          }
+        ]
+      },
+      {
+        "url": "once.com",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "AI: Product launch/marketing page for a software line, not a personal site, portfolio, or small studio page.",
+        "review": {
+          "verdict": "reject",
+          "score": 5,
+          "kind": "product",
+          "name": "ONCE by 37signals",
+          "reason": "Product launch/marketing page for a software line, not a personal site, portfolio, or small studio page.",
+          "model": "inclusionai/ling-3.2-flash:free"
+        },
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "review",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "AI: Product launch/marketing page for a software line, not a personal site, portfolio, or small studio page.",
+            "model": "inclusionai/ling-3.2-flash:free"
+          }
+        ]
+      },
+      {
+        "url": "daftsocial.com",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "AI: Minimal typography, but it's a paid product landing page with signup CTA and pricing, not a personal site, portfolio, or studio page.",
+        "review": {
+          "verdict": "reject",
+          "score": 5,
+          "kind": "product",
+          "name": "Daft Social",
+          "reason": "Minimal typography, but it's a paid product landing page with signup CTA and pricing, not a personal site, portfolio, or studio page.",
+          "model": "inclusionai/ling-3.2-flash:free"
+        },
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "review",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "AI: Minimal typography, but it's a paid product landing page with signup CTA and pricing, not a personal site, portfolio, or studio page.",
+            "model": "inclusionai/ling-3.2-flash:free"
+          }
+        ]
+      },
+      {
+        "url": "ppppoems.com",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "dead (EAI_AGAIN)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "dead (EAI_AGAIN)"
+          }
+        ]
+      },
+      {
+        "url": "anandbaburajan.com",
+        "source": "sheet",
+        "outcome": "published",
+        "reason": "",
+        "review": {
+          "verdict": "accept",
+          "score": 9,
+          "kind": "portfolio",
+          "name": "Anand Baburajan",
+          "reason": "Ultra-light personal portfolio (8.5 KB HTML, 1 script, zero images) showcasing privacy-focused side projects and engineering history with zero clutter.",
+          "model": "nvidia/nemotron-3-ultra-550b-a55b:free"
+        },
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "review",
+            "attempt": 1,
+            "result": "pass",
+            "model": "nvidia/nemotron-3-ultra-550b-a55b:free"
+          },
+          {
+            "step": "publish",
+            "attempt": 1,
+            "result": "pass"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "at": "2026-11-18T00:56:43.337Z",
     "ai": true,
     "published": [

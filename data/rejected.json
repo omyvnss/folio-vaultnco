@@ -136,5 +136,24 @@
     "at": "2026-11-14T22:19:13.342Z",
     "score": 7,
     "model": "inclusionai/ling-3.2-flash:free"
+  },
+  "once.com": {
+    "step": "review",
+    "reason": "AI: Product launch/marketing page for a software line, not a personal site, portfolio, or small studio page.",
+    "at": "2026-11-19T00:18:49.279Z",
+    "score": 5,
+    "model": "inclusionai/ling-3.2-flash:free"
+  },
+  "daftsocial.com": {
+    "step": "review",
+    "reason": "AI: Minimal typography, but it's a paid product landing page with signup CTA and pricing, not a personal site, portfolio, or studio page.",
+    "at": "2026-11-19T00:19:17.569Z",
+    "score": 5,
+    "model": "inclusionai/ling-3.2-flash:free"
+  },
+  "ppppoems.com": {
+    "step": "live",
+    "reason": "dead (EAI_AGAIN)",
+    "at": "2026-11-19T00:19:27.594Z"
   }
 }

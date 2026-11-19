@@ -1,7 +1,7 @@
 {
-  "count": 123,
+  "count": 124,
   "total": 161,
-  "updated": "2026-11-18T00:56:43.335Z",
+  "updated": "2026-11-19T00:19:43.333Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -812,6 +812,14 @@
       "date": "2026-08-24",
       "added": "2026-11-18",
       "name": "Traf",
+      "source": "sheet",
+      "score": 9
+    },
+    {
+      "url": "anandbaburajan.com",
+      "date": "2026-08-24",
+      "added": "2026-11-19",
+      "name": "Anand Baburajan",
       "source": "sheet",
       "score": 9
     }
