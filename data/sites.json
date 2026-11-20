@@ -1,7 +1,7 @@
 {
-  "count": 125,
+  "count": 126,
   "total": 161,
-  "updated": "2026-11-20T00:35:55.138Z",
+  "updated": "2026-11-20T23:58:18.996Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -830,6 +830,14 @@
       "name": "Marcelo Kunze",
       "source": "sheet",
       "score": 8
+    },
+    {
+      "url": "niklasrosen.se",
+      "date": "2026-08-24",
+      "added": "2026-11-20",
+      "name": "Niklas Rosén",
+      "source": "sheet",
+      "score": 9
     }
   ]
 }
