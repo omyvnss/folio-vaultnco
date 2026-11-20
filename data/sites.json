@@ -1,7 +1,7 @@
 {
-  "count": 124,
+  "count": 125,
   "total": 161,
-  "updated": "2026-11-19T00:19:43.333Z",
+  "updated": "2026-11-20T00:35:55.138Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -822,6 +822,14 @@
       "name": "Anand Baburajan",
       "source": "sheet",
       "score": 9
+    },
+    {
+      "url": "marcelokunze.com",
+      "date": "2026-08-24",
+      "added": "2026-11-20",
+      "name": "Marcelo Kunze",
+      "source": "sheet",
+      "score": 8
     }
   ]
 }

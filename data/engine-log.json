@@ -1,5 +1,233 @@
 [
   {
+    "at": "2026-11-20T00:35:55.143Z",
+    "ai": true,
+    "published": [
+      "marcelokunze.com"
+    ],
+    "candidates": [
+      {
+        "url": "moodie.blog",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "dead (ENOTFOUND)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "dead (ENOTFOUND)"
+          }
+        ]
+      },
+      {
+        "url": "tino.works",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "HTTP 403",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "HTTP 403"
+          }
+        ]
+      },
+      {
+        "url": "535.studio",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "dead (ENOTFOUND)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "dead (ENOTFOUND)"
+          }
+        ]
+      },
+      {
+        "url": "serhii.be",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "dead (ENOTFOUND)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "dead (ENOTFOUND)"
+          }
+        ]
+      },
+      {
+        "url": "giteshsarvaiya.co",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "dead (ENOTFOUND)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "dead (ENOTFOUND)"
+          }
+        ]
+      },
+      {
+        "url": "andrs.me",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "dead (ENOTFOUND)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "dead (ENOTFOUND)"
+          }
+        ]
+      },
+      {
+        "url": "andymccune.com",
+        "source": "sheet",
+        "outcome": "failed",
+        "reason": "no screenshot produced",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "retry",
+            "reason": "looks blank (1888 bytes)"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 2,
+            "result": "retry",
+            "reason": "no screenshot produced"
+          }
+        ]
+      },
+      {
+        "url": "minimalism.com",
+        "source": "sheet",
+        "outcome": "failed",
+        "reason": "looks blank (4178 bytes)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "retry",
+            "reason": "looks blank (4144 bytes)"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 2,
+            "result": "retry",
+            "reason": "looks blank (4178 bytes)"
+          }
+        ]
+      },
+      {
+        "url": "parth.ski",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "dead (certificate)",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "dead (certificate)"
+          }
+        ]
+      },
+      {
+        "url": "hiasmir.com",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "HTTP 522",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "retry",
+            "reason": "HTTP 522"
+          },
+          {
+            "step": "live",
+            "attempt": 2,
+            "result": "retry",
+            "reason": "HTTP 522"
+          }
+        ]
+      },
+      {
+        "url": "liams.life",
+        "source": "sheet",
+        "outcome": "rejected",
+        "reason": "HTTP 404",
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "reject",
+            "reason": "HTTP 404"
+          }
+        ]
+      },
+      {
+        "url": "marcelokunze.com",
+        "source": "sheet",
+        "outcome": "published",
+        "reason": "",
+        "review": {
+          "verdict": "accept",
+          "score": 8,
+          "kind": "personal",
+          "name": "Marcelo Kunze",
+          "reason": "Restrained dark typographic personal page with generous whitespace, a single column of text, and no clutter or marketing elements.",
+          "model": "particle-ai/particle-1:free"
+        },
+        "trace": [
+          {
+            "step": "live",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "screenshot",
+            "attempt": 1,
+            "result": "pass"
+          },
+          {
+            "step": "review",
+            "attempt": 1,
+            "result": "pass",
+            "model": "particle-ai/particle-1:free"
+          },
+          {
+            "step": "publish",
+            "attempt": 1,
+            "result": "pass"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "at": "2026-11-19T00:19:43.335Z",
     "ai": true,
     "published": [
