@@ -1,7 +1,7 @@
 {
-  "count": 126,
+  "count": 127,
   "total": 161,
-  "updated": "2026-11-20T23:58:18.996Z",
+  "updated": "2026-11-21T23:09:39.683Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -836,6 +836,14 @@
       "date": "2026-08-24",
       "added": "2026-11-20",
       "name": "Niklas Rosén",
+      "source": "sheet",
+      "score": 9
+    },
+    {
+      "url": "shud.in",
+      "date": "2026-08-24",
+      "added": "2026-11-21",
+      "name": "Shu Ding",
       "source": "sheet",
       "score": 9
     }
