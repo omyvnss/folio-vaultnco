@@ -1,7 +1,7 @@
 {
-  "count": 127,
+  "count": 128,
   "total": 161,
-  "updated": "2026-11-21T23:09:39.683Z",
+  "updated": "2026-11-22T23:35:30.732Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -844,6 +844,14 @@
       "date": "2026-08-24",
       "added": "2026-11-21",
       "name": "Shu Ding",
+      "source": "sheet",
+      "score": 9
+    },
+    {
+      "url": "buditanrim.co",
+      "date": "2026-08-24",
+      "added": "2026-11-22",
+      "name": "Budi Tanrim",
       "source": "sheet",
       "score": 9
     }
