@@ -1,7 +1,7 @@
 {
-  "count": 129,
+  "count": 130,
   "total": 161,
-  "updated": "2026-11-24T03:57:55.553Z",
+  "updated": "2026-11-25T02:21:51.281Z",
   "sites": [
     {
       "url": "nilseller.com",
@@ -862,6 +862,14 @@
       "name": "Matt D. Smith (MDS)",
       "source": "sheet",
       "score": 8
+    },
+    {
+      "url": "vitor.com",
+      "date": "2026-08-24",
+      "added": "2026-11-25",
+      "name": "Vitor Lourenço",
+      "source": "sheet",
+      "score": 9
     }
   ]
 }
