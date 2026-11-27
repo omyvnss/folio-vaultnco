@@ -17,22 +17,22 @@
   "moodie.blog": {
     "step": "live",
     "reason": "dead (ENOTFOUND)",
-    "at": "2026-11-20T00:35:12.210Z"
+    "at": "2026-11-27T01:41:42.446Z"
   },
   "tino.works": {
     "step": "live",
     "reason": "HTTP 403",
-    "at": "2026-11-20T00:35:12.373Z"
+    "at": "2026-11-27T01:41:42.530Z"
   },
   "535.studio": {
     "step": "live",
     "reason": "dead (ENOTFOUND)",
-    "at": "2026-11-20T00:35:12.438Z"
+    "at": "2026-11-27T01:41:42.780Z"
   },
   "serhii.be": {
     "step": "live",
     "reason": "dead (ENOTFOUND)",
-    "at": "2026-11-20T00:35:12.593Z"
+    "at": "2026-11-27T01:41:42.929Z"
   },
   "zaidmukaddam.com": {
     "step": "live",
@@ -42,7 +42,7 @@
   "giteshsarvaiya.co": {
     "step": "live",
     "reason": "dead (ENOTFOUND)",
-    "at": "2026-11-20T00:35:12.633Z"
+    "at": "2026-11-27T01:41:42.958Z"
   },
   "chanhdai.com": {
     "step": "review",
@@ -57,7 +57,7 @@
   "andrs.me": {
     "step": "live",
     "reason": "dead (ENOTFOUND)",
-    "at": "2026-11-20T00:35:12.686Z"
+    "at": "2026-11-27T01:41:42.978Z"
   },
   "min.dpaulos.pt": {
     "step": "live",
@@ -118,17 +118,17 @@
   "parth.ski": {
     "step": "live",
     "reason": "dead (certificate)",
-    "at": "2026-11-20T00:35:46.279Z"
+    "at": "2026-11-27T01:41:49.227Z"
   },
   "hiasmir.com": {
     "step": "live",
     "reason": "HTTP 522",
-    "at": "2026-11-20T00:35:46.444Z"
+    "at": "2026-11-27T01:41:49.386Z"
   },
   "liams.life": {
     "step": "live",
     "reason": "HTTP 404",
-    "at": "2026-11-20T00:35:46.585Z"
+    "at": "2026-11-27T01:41:49.582Z"
   },
   "bmrks.com": {
     "step": "review",
